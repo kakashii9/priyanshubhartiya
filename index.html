@@ -1,125 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Priyanshu Bhartiya — Official</title>
+<meta charset="UTF-8" />
+<title>Priyanshu Bhartiya | Official</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
   font-family:'Inter',sans-serif;
-  background:#000;
   color:#fff;
+  background:#000;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+.page-bg{
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.88)),
+    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
+  filter:blur(18px);
+  transform:scale(1.12);
+  z-index:-1;
+}
+.page-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, rgba(0,0,0,.1), rgba(0,0,0,.9));
+}
+
+/* MAIN CARD */
+.container{
+  max-width:520px;
+  margin:40px auto;
+  padding:30px 24px 46px;
+  text-align:center;
+  background:rgba(0,0,0,.48);
+  backdrop-filter:blur(14px);
+  border-radius:28px;
+  box-shadow:0 40px 120px rgba(0,0,0,.85);
+  animation:fadeUp .7s ease forwards;
 }
 
 /* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:flex-end;
-  padding:60px 24px;
-  background:
-    linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.2)),
-    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
+.hero img{
+  width:100%;
+  border-radius:22px;
+  margin-bottom:26px;
+  box-shadow:0 30px 80px rgba(0,0,0,.75);
 }
 
-.hero-content{
-  max-width:520px;
-}
-
-.hero h1{
+/* TEXT */
+h1{
   font-family:'Playfair Display',serif;
-  font-size:42px;
-  line-height:1.1;
+  font-size:34px;
+  margin-bottom:6px;
 }
 
-.hero p{
-  margin-top:14px;
-  font-size:15px;
-  opacity:.8;
-  letter-spacing:1px;
+.tagline{
+  font-size:14px;
+  opacity:.75;
 }
 
-/* SECTION */
-.section{
-  max-width:520px;
-  margin:70px auto;
-  padding:0 24px;
+.slogan{
+  margin-top:10px;
+  font-size:14px;
+  letter-spacing:2.2px;
+  font-weight:600;
+  text-transform:uppercase;
+  opacity:.85;
 }
 
+/* SECTIONS */
 .section-title{
+  margin:46px 0 18px;
   font-size:12px;
   letter-spacing:3px;
-  opacity:.6;
-  margin-bottom:18px;
+  opacity:.65;
 }
 
-/* FEATURE CARD */
-.feature{
-  padding:22px;
-  border-radius:22px;
-  background:rgba(255,255,255,.06);
-  backdrop-filter:blur(14px);
-  margin-bottom:20px;
-}
-
-.feature a{
-  color:#fff;
-  text-decoration:none;
-  font-size:18px;
+/* LINKS */
+.link{
   display:block;
+  padding:16px;
+  margin:14px 0;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.22);
+  text-decoration:none;
+  color:#fff;
+  background:linear-gradient(
+    to right,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.02)
+  );
+  backdrop-filter:blur(8px);
+  transition:.25s ease;
 }
 
-.feature span{
+.link:hover{
+  background:#fff;
+  color:#000;
+  transform:translateY(-3px);
+}
+
+.highlight{
+  border-color:#fff;
+  box-shadow:0 0 26px rgba(255,255,255,.25);
+}
+
+.box-desc{
   font-size:13px;
   opacity:.7;
+  margin-top:6px;
+  line-height:1.6;
+}
+
+.follow-note{
+  font-size:12px;
+  opacity:.6;
+  font-style:italic;
+}
+
+/* SPOTIFY */
+.spotify{
+  margin:34px 0 24px;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
+}
+
+/* POPULAR */
+.popular{
+  display:grid;
+  gap:16px;
+}
+
+/* KNOWN */
+.known{
+  font-size:13px;
+  line-height:1.9;
+  opacity:.85;
 }
 
 /* FOOTER */
 .footer{
-  text-align:center;
-  padding:60px 20px;
+  margin-top:42px;
   font-size:13px;
-  opacity:.6;
+  opacity:.75;
 }
+
 .footer a{color:#fff;text-decoration:none}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:none}
+}
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>Priyanshu<br>Bhartiya</h1>
-    <p>Independent Hindi music for late nights,<br>unfinished love, and quiet emotions.</p>
-  </div>
-</section>
+<div class="page-bg"></div>
 
-<section class="section">
-  <div class="section-title">LATEST</div>
-  <div class="feature">
-    <a href="https://open.spotify.com/album/6rEZbmF0wEClyfJigyzKkM" target="_blank">
-      🎧 Cravings
-      <span><br>Waiting, softly in love</span>
+<div class="container">
+
+  <div class="hero">
+    <img src="https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg" alt="Priyanshu Bhartiya">
+  </div>
+
+  <h1>Priyanshu Bhartiya</h1>
+  <div class="tagline">Singer · Composer · Songwriter</div>
+  <div class="slogan">Singing unTold Stories</div>
+
+  <div class="spotify">
+    <iframe src="https://open.spotify.com/embed/artist/5Gg1GTGlFjLED8vqMggMCv"
+      width="100%" height="152" frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+  </div>
+
+  <div class="section-title">LATEST RELEASE</div>
+
+  <a class="link highlight"
+     href="https://open.spotify.com/album/6rEZbmF0wEClyfJigyzKkM"
+     target="_blank">
+    🎧 Cravings
+    <div class="box-desc">Waiting, softly in love</div>
+  </a>
+
+  <a class="link" href="https://youtu.be/d2wyBVrCmh4" target="_blank">🎵 Phir Milenge</a>
+  <a class="link" href="https://youtu.be/nCMW5CkNr6U" target="_blank">🎵 Pehli Baar</a>
+
+  <div class="section-title">POPULAR SONGS</div>
+
+  <div class="popular">
+    <a class="link" href="https://youtu.be/eLY1M3MsQZM" target="_blank">
+      ❤️ Marham — 80K+
+    </a>
+    <a class="link" href="https://youtu.be/QpVTHysXjCY" target="_blank">
+      🔥 Fanaa Kar Diya 2.0 — 45K+
     </a>
   </div>
 
-  <div class="section-title">LISTEN</div>
-  <div class="feature">
-    <a href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv">Spotify</a>
+  <div class="section-title">KNOWN FOR</div>
+  <div class="known">
+    • 2 Lakhs+ YouTube views across releases<br>
+    • 1.5 Lakhs+ total streams<br>
+    • 10K+ monthly listeners<br>
+    • Independent Hindi romantic & chill music
   </div>
-  <div class="feature">
-    <a href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530">Apple Music</a>
-  </div>
-</section>
 
-<div class="footer">
-  📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
+  <div class="section-title">FOLLOW</div>
+
+  <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA" target="_blank">
+    YouTube <span class="follow-note">— watch the stories</span>
+  </a>
+  <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">
+    Spotify <span class="follow-note">— stream the feelings</span>
+  </a>
+  <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">
+    Apple Music <span class="follow-note">— listen in lossless</span>
+  </a>
+  <a class="link" href="https://instagram.com/ipriyanshubhartiya" target="_blank">
+    Instagram <span class="follow-note">— behind the songs</span>
+  </a>
+
+  <div class="footer">
+    Mail for queries & collaborations<br>
+    📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
+  </div>
+
 </div>
-
 </body>
 </html>
