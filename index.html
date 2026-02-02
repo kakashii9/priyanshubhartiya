@@ -15,16 +15,14 @@ body{
   color:#fff;
   background:#000;
   overflow-x:hidden;
-  animation:fadeIn 1.4s ease;
 }
 
-/* ===== CINEMATIC BACKGROUND ===== */
+/* BACKGROUND */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   background:
-    radial-gradient(circle at top,rgba(255,255,255,0.08),transparent 60%),
     linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
     url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
   filter:blur(22px);
@@ -32,7 +30,7 @@ body::before{
   z-index:-1;
 }
 
-/* ===== MAIN CARD ===== */
+/* CARD */
 .container{
   max-width:520px;
   margin:40px auto;
@@ -44,13 +42,12 @@ body::before{
   box-shadow:0 40px 120px rgba(0,0,0,.85);
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero img{
   width:100%;
   border-radius:22px;
   margin-bottom:26px;
   box-shadow:0 30px 80px rgba(0,0,0,.75);
-  animation:float 6s ease-in-out infinite;
 }
 
 h1{
@@ -65,23 +62,14 @@ h1{
 }
 
 .slogan{
-  margin-top:12px;
+  margin-top:10px;
   font-size:15px;
   letter-spacing:2.2px;
-  font-weight:600;
+  font-weight:700;
   text-transform:uppercase;
-  opacity:.9;
 }
 
-/* ===== SPOTIFY FEATURE ===== */
-.spotify{
-  margin:34px 0 24px;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,.6);
-}
-
-/* ===== SECTION TITLES ===== */
+/* SECTIONS */
 .section-title{
   margin:46px 0 18px;
   font-size:13px;
@@ -89,7 +77,7 @@ h1{
   opacity:.75;
 }
 
-/* ===== LINKS ===== */
+/* LINKS */
 .link{
   display:block;
   padding:16px;
@@ -99,13 +87,13 @@ h1{
   text-decoration:none;
   color:#fff;
   backdrop-filter:blur(8px);
-  transition:.35s ease;
+  transition:.3s ease;
 }
 
 .link:hover{
   background:#fff;
   color:#000;
-  transform:translateY(-3px) scale(1.01);
+  transform:translateY(-3px);
 }
 
 .highlight{
@@ -113,18 +101,20 @@ h1{
   box-shadow:0 0 26px rgba(255,255,255,.25);
 }
 
-/* ===== POPULAR SONGS ===== */
+/* SPOTIFY */
+.spotify{
+  margin:34px 0 24px;
+  border-radius:18px;
+  overflow:hidden;
+}
+
+/* POPULAR */
 .popular{
   display:grid;
   gap:16px;
-  margin-top:10px;
 }
 
-.popular .link{
-  background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
-}
-
-/* ===== DESCRIPTION ===== */
+/* TEXT */
 .desc{
   font-size:14px;
   line-height:1.75;
@@ -132,7 +122,7 @@ h1{
   margin-top:46px;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 .footer{
   margin-top:42px;
   font-size:13px;
@@ -142,17 +132,6 @@ h1{
 .footer a{
   color:#fff;
   text-decoration:none;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeIn{
-  from{opacity:0}
-  to{opacity:1}
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
 }
 </style>
 </head>
@@ -169,38 +148,34 @@ h1{
   <div class="tagline">Singer · Composer · Songwriter</div>
   <div class="slogan">Singing unTold Stories</div>
 
-  <!-- FEATURED SPOTIFY -->
+  <!-- SPOTIFY EMBED -->
   <div class="spotify">
-    <iframe src="https://open.spotify.com/embed/track/3qDGbTc6IxmYVkMKN12Bab"
+    <iframe src="https://open.spotify.com/embed/artist/5Gg1GTGlFjLED8vqMggMCv"
       width="100%" height="152" frameborder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
     </iframe>
   </div>
 
-  <!-- LISTEN -->
+  <!-- LATEST -->
   <div class="section-title">LATEST</div>
 
-  <a class="link highlight" href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab" target="_blank">
-    🎧 Cravings — Latest Release
-  </a>
-
-  <a class="link" href="https://youtu.be/nCMW5CkNr6U" target="_blank">
+  <a class="link highlight" href="https://youtu.be/nCMW5CkNr6U?si=NIS8borYv4i8rn-h" target="_blank">
     🎵 Pehli Baar
   </a>
 
-  <a class="link" href="https://youtu.be/d2wyBVrCmh4" target="_blank">
+  <a class="link" href="https://youtu.be/d2wyBVrCmh4?si=1k7qG4Xk5sj8COCn" target="_blank">
     🎵 Phir Milenge
   </a>
 
   <!-- POPULAR -->
-  <div class="section-title">POPULAR</div>
+  <div class="section-title">POPULAR SONGS</div>
 
   <div class="popular">
-    <a class="link" href="https://youtu.be/eLY1M3MsQZM" target="_blank">
-      ❤️ Marham — 80K+ Views
+    <a class="link" href="https://youtu.be/eLY1M3MsQZM?si=St7Spgr1rNNyRn41" target="_blank">
+      ❤️ Marham — 80K+
     </a>
-    <a class="link" href="https://youtu.be/QpVTHysXjCY" target="_blank">
-      🔥 Fanaa Kar Diya 2.0 — 45K+ Views
+    <a class="link" href="https://youtu.be/QpVTHysXjCY?si=YVrv9dAq_iC6RG3A" target="_blank">
+      🔥 Fanaa Kar Diya 2.0 — 45K+
     </a>
   </div>
 
@@ -208,19 +183,19 @@ h1{
   <div class="section-title">FOLLOW</div>
 
   <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
-  <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
+  <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">
+    YouTube (Subscribe)
+  </a>
   <a class="link" href="https://instagram.com/ipriyanshubhartiya" target="_blank">Instagram</a>
 
   <!-- MESSAGE -->
   <div class="desc">
-    Some songs aren’t meant to be healed.<br>
-    They’re meant to be felt — again and again.<br><br>
-    Thank you for listening. 🤍
+    Some songs are not meant to be healed.<br>
+    They are meant to be felt — again and again.
   </div>
 
   <!-- BUSINESS -->
   <div class="footer">
-    For business & collaborations<br>
     📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
   </div>
 
