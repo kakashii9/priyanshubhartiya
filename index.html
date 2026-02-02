@@ -1,152 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Priyanshu Bhartiya | Music</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root{
-  --glass: rgba(0,0,0,.55);
-  --border: rgba(255,255,255,.18);
-  --text-soft: rgba(255,255,255,.75);
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
-*{ box-sizing:border-box; }
-
-html,body{
-  margin:0;
-  padding:0;
-  background:#000;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  overflow-x:hidden;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #ffffff;
+  background: #000;
+  overflow-x: hidden;
 }
 
-/* ===== BACKGROUND CANVAS (NEVER SCROLLS) ===== */
-#bg-canvas{
-  position:fixed;
-  inset:0;
-  z-index:-3;
+/* ===== EXACT SAME BACKGROUND (BUT FIXED) ===== */
+.bg {
+  position: fixed;
+  inset: 0;
   background:
-    radial-gradient(circle at 20% 20%, rgba(255,80,80,.25), transparent 45%),
-    radial-gradient(circle at 80% 30%, rgba(120,180,255,.25), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(180,120,255,.25), transparent 50%),
-    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
-  filter: blur(22px) saturate(1.2);
-  transform: scale(1.15);
-  will-change: transform;
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center / cover no-repeat;
+  filter: blur(14px);
+  transform: scale(1.08);
+  z-index: -1;
 }
 
-/* Dark cinematic wash */
-#bg-overlay{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8));
-  z-index:-2;
+/* MAIN CONTAINER — SAME AS ORIGINAL */
+.container {
+  max-width: 480px;
+  margin: auto;
+  padding: 28px 22px 46px;
+  text-align: center;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  border-radius: 18px;
 }
 
-/* ===== MAIN CARD ===== */
-.container{
-  max-width:480px;
-  margin:60px auto;
-  padding:28px 22px 46px;
-  text-align:center;
-  background:var(--glass);
-  backdrop-filter: blur(10px);
-  border-radius:20px;
-  border:1px solid var(--border);
-  box-shadow:0 30px 80px rgba(0,0,0,.6);
-  transform:translateZ(0);
-}
-
-/* HERO */
-.hero img{
-  width:100%;
-  border-radius:18px;
-  margin-bottom:22px;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
+/* HERO IMAGE */
+.hero img {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
 
 /* TEXT */
-h1{ font-size:30px; margin-bottom:6px; }
-.tagline{ font-size:14px; opacity:.75; }
-
-.slogan{
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:1.6px;
-  text-transform:uppercase;
-  margin:14px 0 30px;
-  background:linear-gradient(90deg,#fff,#bbb);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+h1 {
+  font-size: 30px;
+  margin-bottom: 6px;
 }
 
-/* SECTIONS */
-.section-title{
-  font-size:13px;
-  letter-spacing:2px;
-  opacity:.75;
-  margin:36px 0 16px;
+.tagline {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.slogan {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin: 14px 0 30px;
+}
+
+/* SECTION TITLES */
+.section-title {
+  font-size: 13px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  margin: 36px 0 16px;
 }
 
 /* LINKS */
-.link{
-  display:block;
-  padding:15px;
-  margin:12px 0;
-  border-radius:16px;
-  border:1px solid var(--border);
-  color:#fff;
-  text-decoration:none;
-  transition:transform .25s ease, background .25s ease;
+.link {
+  display: block;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+  text-decoration: none;
+  color: #ffffff;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
-.link:hover{
-  background:#fff;
-  color:#000;
-  transform:translateY(-2px);
+.link:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-1px);
 }
 
-.highlight{
-  border-color:#fff;
-  box-shadow:0 0 22px rgba(255,255,255,.3);
+.highlight {
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 18px rgba(255,255,255,0.25);
 }
 
 /* SPOTIFY */
-.spotify{
-  margin-top:20px;
-  border-radius:16px;
-  overflow:hidden;
+.spotify {
+  margin-top: 20px;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-/* DESCRIPTION */
-.desc{
-  font-size:14px;
-  line-height:1.7;
-  opacity:.8;
-  margin-top:34px;
+/* DESCRIPTION — CENTERED (UNCHANGED) */
+.desc {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin-top: 34px;
+  text-align: center;
 }
 
 /* FOOTER */
-.footer{
-  font-size:13px;
-  opacity:.7;
-  margin-top:38px;
+.footer {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 38px;
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* MOBILE */
-@media(max-width:600px){
-  .container{ margin:40px 14px; }
+@media (max-width: 600px){
+  .bg {
+    filter: blur(10px);
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div id="bg-canvas"></div>
-<div id="bg-overlay"></div>
+<div class="bg"></div>
 
 <div class="container">
 
@@ -156,20 +152,28 @@ h1{ font-size:30px; margin-bottom:6px; }
 
   <h1>Priyanshu Bhartiya</h1>
   <div class="tagline">Singer · Composer · Songwriter</div>
-  <div class="slogan">Singing Untold Stories</div>
+  <div class="slogan">Singing unTold Stories</div>
 
   <div class="spotify">
-    <iframe src="https://open.spotify.com/embed/track/3qDGbTc6IxmYVkMKN12Bab"
-      width="100%" height="152" frameborder="0" allow="encrypted-media">
+    <iframe
+      src="https://open.spotify.com/embed/track/3qDGbTc6IxmYVkMKN12Bab"
+      width="100%" height="152"
+      frameborder="0"
+      allow="encrypted-media">
     </iframe>
   </div>
 
   <div class="section-title">LISTEN</div>
-  <a class="link highlight" href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab" target="_blank">🎧 Cravings — Latest Release</a>
+
+  <a class="link highlight" href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab" target="_blank">
+    🎧 Cravings — Latest Release
+  </a>
+
   <a class="link" href="https://youtu.be/nCMW5CkNr6U" target="_blank">🎵 Pehli Baar</a>
   <a class="link" href="https://youtu.be/d2wyBVrCmh4" target="_blank">🎵 Phir Milenge</a>
 
   <div class="section-title">FOLLOW</div>
+
   <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
   <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">Apple Music</a>
   <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
@@ -178,7 +182,7 @@ h1{ font-size:30px; margin-bottom:6px; }
   <div class="desc">
     If my songs find a place in your heart, stay with me.<br>
     I’m always singing untold stories.<br><br>
-    Thank you for listening. 🤍
+    Thank you for listening, and for all the love and blessings. 🤍
   </div>
 
   <div class="footer">
@@ -187,15 +191,6 @@ h1{ font-size:30px; margin-bottom:6px; }
   </div>
 
 </div>
-
-<script>
-/* ===== FAKE PARALLAX (ZERO JITTER) ===== */
-const bg = document.getElementById("bg-canvas");
-window.addEventListener("scroll", () => {
-  const y = window.scrollY * 0.03;
-  bg.style.transform = `scale(1.15) translateY(${y}px)`;
-});
-</script>
 
 </body>
 </html>
