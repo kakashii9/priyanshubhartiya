@@ -14,33 +14,41 @@ body{
   font-family:'Inter',sans-serif;
   color:#fff;
   background:#000;
-  position:relative;
   overflow-x:hidden;
 }
 
 /* BACKGROUND */
 .page-bg{
-  position:absolute;
+  position:fixed;
   inset:0;
-  min-height:100%;
   background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
     url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
   filter:blur(22px);
-  transform:scale(1.15);
-  z-index:-1;
+  transform:scale(1.2);
+  z-index:-2;
+}
+.page-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,.15), rgba(0,0,0,.85)),
+    url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:.35;
 }
 
 /* CARD */
 .container{
   max-width:520px;
   margin:40px auto;
-  padding:28px 24px 46px;
+  padding:30px 24px 48px;
   text-align:center;
-  backdrop-filter:blur(14px);
   background:rgba(0,0,0,.45);
-  border-radius:28px;
+  backdrop-filter:blur(16px);
+  border-radius:30px;
   box-shadow:0 40px 120px rgba(0,0,0,.85);
+  animation:fadeUp .8s ease forwards;
 }
 
 /* HERO */
@@ -49,33 +57,38 @@ body{
   border-radius:22px;
   margin-bottom:26px;
   box-shadow:0 30px 80px rgba(0,0,0,.75);
+  filter:contrast(1.05) saturate(.95);
+  mask-image:linear-gradient(to bottom, #000 85%, transparent);
 }
 
 h1{
   font-family:'Playfair Display',serif;
   font-size:34px;
-  margin-bottom:6px;
+  letter-spacing:-.5px;
 }
 
 .tagline{
-  font-size:14px;
-  opacity:.75;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  opacity:.7;
+  margin-top:6px;
 }
 
 .slogan{
   margin-top:10px;
-  font-size:15px;
-  letter-spacing:2.2px;
-  font-weight:700;
-  text-transform:uppercase;
+  font-size:14px;
+  letter-spacing:2.4px;
+  font-weight:600;
+  opacity:.85;
 }
 
-/* SECTIONS */
+/* SECTION */
 .section-title{
-  margin:46px 0 18px;
-  font-size:13px;
+  margin:44px 0 18px;
+  font-size:12px;
   letter-spacing:3px;
-  opacity:.75;
+  opacity:.65;
 }
 
 /* LINKS */
@@ -84,9 +97,14 @@ h1{
   padding:16px;
   margin:14px 0;
   border-radius:18px;
-  border:1px solid rgba(255,255,255,.25);
   text-decoration:none;
   color:#fff;
+  background:linear-gradient(
+    to right,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.02)
+  );
+  border:1px solid rgba(255,255,255,.18);
   backdrop-filter:blur(8px);
   transition:.25s ease;
 }
@@ -95,64 +113,37 @@ h1{
   background:#fff;
   color:#000;
   transform:translateY(-3px);
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
 .highlight{
-  border:1px solid #fff;
+  border-color:#fff;
   box-shadow:0 0 26px rgba(255,255,255,.25);
 }
 
-/* inside-box description */
 .box-desc{
   font-size:13px;
   opacity:.7;
   margin-top:6px;
-  line-height:1.6;
-}
-
-/* follow micro text */
-.follow-note{
-  font-size:12px;
-  opacity:.6;
-  font-style:italic;
-}
-
-/* SPOTIFY */
-.spotify{
-  margin:34px 0 24px;
-  border-radius:18px;
-  overflow:hidden;
-}
-
-/* POPULAR */
-.popular{
-  display:grid;
-  gap:16px;
-}
-
-/* KNOWN FOR */
-.known{
-  font-size:13px;
-  line-height:1.9;
-  opacity:.85;
 }
 
 /* FOOTER */
 .footer{
   margin-top:42px;
-  font-size:13px;
-  opacity:.75;
+  font-size:12px;
+  opacity:.65;
 }
 
-.footer a{
-  color:#fff;
-  text-decoration:none;
+.footer a{color:#fff;text-decoration:none}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
 }
 </style>
 </head>
 
 <body>
-
 <div class="page-bg"></div>
 
 <div class="container">
@@ -163,71 +154,25 @@ h1{
 
   <h1>Priyanshu Bhartiya</h1>
   <div class="tagline">Singer · Composer · Songwriter</div>
-  <div class="slogan">Singing unTold Stories</div>
+  <div class="slogan">Singing Untold Stories</div>
 
-  <div class="spotify">
-    <iframe src="https://open.spotify.com/embed/artist/5Gg1GTGlFjLED8vqMggMCv"
-      width="100%" height="152" frameborder="0"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-    </iframe>
-  </div>
-
-  <!-- LATEST -->
   <div class="section-title">LATEST RELEASE</div>
 
-  <a class="link highlight"
-     href="https://open.spotify.com/album/6rEZbmF0wEClyfJigyzKkM"
-     target="_blank">
+  <a class="link highlight" href="https://open.spotify.com/album/6rEZbmF0wEClyfJigyzKkM" target="_blank">
     🎧 Cravings
-<div class="box-desc">
-  Waiting, softly in love
-</div>
-
+    <div class="box-desc">Waiting, softly in love</div>
   </a>
 
   <a class="link" href="https://youtu.be/d2wyBVrCmh4" target="_blank">🎵 Phir Milenge</a>
   <a class="link" href="https://youtu.be/nCMW5CkNr6U" target="_blank">🎵 Pehli Baar</a>
 
-  <!-- POPULAR -->
-  <div class="section-title">POPULAR SONGS</div>
-
-  <div class="popular">
-    <a class="link" href="https://youtu.be/eLY1M3MsQZM" target="_blank">
-      ❤️ Marham — 80K+
-    </a>
-    <a class="link" href="https://youtu.be/QpVTHysXjCY" target="_blank">
-      🔥 Fanaa Kar Diya 2.0 — 45K+
-    </a>
-  </div>
-
-  <!-- KNOWN FOR -->
-  <div class="section-title">KNOWN FOR</div>
-  <div class="known">
-    • 2 Lakhs+ YouTube views across releases<br>
-    • 1.5 Lakhs+ total streams<br>
-    • 10K+ monthly listeners<br>
-    • Independent Hindi romantic & chill music
-  </div>
-
-  <!-- FOLLOW -->
   <div class="section-title">FOLLOW</div>
 
-  <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA" target="_blank">
-    YouTube <span class="follow-note">— watch the stories</span>
-  </a>
-  <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">
-    Spotify <span class="follow-note">— stream the feelings</span>
-  </a>
-  <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">
-    Apple Music <span class="follow-note">— listen in lossless</span>
-  </a>
-  <a class="link" href="https://instagram.com/ipriyanshubhartiya" target="_blank">
-    Instagram <span class="follow-note">— behind the songs</span>
-  </a>
+  <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv">Spotify</a>
+  <a class="link" href="https://instagram.com/ipriyanshubhartiya">Instagram</a>
+  <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA">YouTube</a>
 
-  <!-- FOOTER -->
   <div class="footer">
-    Mail for queries & collaborations<br>
     📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
   </div>
 
