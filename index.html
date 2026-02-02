@@ -6,152 +6,157 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root{
-  --glass: rgba(0,0,0,.58);
-  --border: rgba(255,255,255,.16);
-  --soft: rgba(255,255,255,.75);
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
-*{ box-sizing:border-box; }
-
-html,body{
-  margin:0;
-  padding:0;
-  background:#000;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  overflow-x:hidden;
+body {
+  position: relative; /* IMPORTANT */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #ffffff;
+  background: #000;
+  overflow-x: hidden;
+  animation: fadeIn 0.8s ease;
 }
 
-/* ===== ABSOLUTE ZERO-JITTER BACKGROUND ===== */
-.bg{
-  position:fixed;
-  inset:0;
-  z-index:-3;
+/* 🔥 SAME BACKGROUND — JITTER FIXED */
+body::before {
+  content: "";
+  position: fixed;          /* 🔥 KEY FIX */
+  inset: -30px;             /* blur edges hide */
   background:
-    radial-gradient(circle at 15% 20%, rgba(255,90,120,.35), transparent 45%),
-    radial-gradient(circle at 80% 30%, rgba(120,180,255,.35), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(180,120,255,.35), transparent 50%),
-    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
-  transform:scale(1.12);
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center / cover no-repeat;
+  filter: blur(14px);
+  transform: scale(1.1);
+  will-change: transform;
+  z-index: -1;
 }
 
-/* PRE-BLURRED GLASS WASH (NO FILTER) */
-.bg::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.82)),
-    radial-gradient(circle at center, rgba(255,255,255,.06), transparent 70%);
+/* MAIN CONTAINER */
+.container {
+  max-width: 480px;
+  margin: auto;
+  padding: 28px 22px 46px;
+  text-align: center;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 18px;
 }
 
-/* ===== MAIN CARD ===== */
-.container{
-  max-width:480px;
-  margin:60px auto;
-  padding:28px 22px 46px;
-  text-align:center;
-  background:var(--glass);
-  border-radius:20px;
-  border:1px solid var(--border);
-  box-shadow:0 35px 90px rgba(0,0,0,.7);
-  transform:translateZ(0);
-}
-
-/* HERO */
-.hero img{
-  width:100%;
-  border-radius:18px;
-  margin-bottom:22px;
-  box-shadow:0 22px 55px rgba(0,0,0,.65);
+/* HERO IMAGE */
+.hero img {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  animation: zoomIn 0.9s ease;
 }
 
 /* TEXT */
-h1{
-  font-size:30px;
-  margin-bottom:6px;
+h1 {
+  font-size: 30px;
+  margin-bottom: 6px;
 }
 
-.tagline{
-  font-size:14px;
-  opacity:.75;
+.tagline {
+  font-size: 14px;
+  opacity: 0.75;
 }
 
-.slogan{
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:1.6px;
-  text-transform:uppercase;
-  margin:14px 0 30px;
-  background:linear-gradient(90deg,#fff,#cfcfcf);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+.slogan {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin: 14px 0 30px;
 }
 
-/* SECTIONS */
-.section-title{
-  font-size:13px;
-  letter-spacing:2px;
-  opacity:.7;
-  margin:36px 0 16px;
+/* SECTION TITLES */
+.section-title {
+  font-size: 13px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  margin: 36px 0 16px;
 }
 
 /* LINKS */
-.link{
-  display:block;
-  padding:15px;
-  margin:12px 0;
-  border-radius:16px;
-  border:1px solid var(--border);
-  color:#fff;
-  text-decoration:none;
-  transition:transform .22s ease, background .22s ease;
+.link {
+  display: block;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+  text-decoration: none;
+  color: #ffffff;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
-.link:hover{
-  background:#fff;
-  color:#000;
-  transform:translateY(-2px);
+.link:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-1px);
 }
 
-.highlight{
-  border-color:#fff;
-  box-shadow:0 0 24px rgba(255,255,255,.3);
+.highlight {
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 18px rgba(255,255,255,0.25);
 }
 
 /* SPOTIFY */
-.spotify{
-  margin-top:20px;
-  border-radius:16px;
-  overflow:hidden;
+.spotify {
+  margin-top: 20px;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 /* DESCRIPTION */
-.desc{
-  font-size:14px;
-  line-height:1.7;
-  opacity:.8;
-  margin-top:34px;
+.desc {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin-top: 34px;
 }
 
 /* FOOTER */
-.footer{
-  font-size:13px;
-  opacity:.7;
-  margin-top:38px;
+.footer {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 38px;
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 /* MOBILE */
-@media(max-width:600px){
-  .container{ margin:40px 14px; }
+@media (max-width: 600px){
+  body::before {
+    filter: blur(10px);
+  }
 }
 </style>
 </head>
 
 <body>
-
-<div class="bg"></div>
 
 <div class="container">
 
@@ -161,14 +166,14 @@ h1{
 
   <h1>Priyanshu Bhartiya</h1>
   <div class="tagline">Singer · Composer · Songwriter</div>
-  <div class="slogan">Singing Untold Stories</div>
+  <div class="slogan">Singing unTold Stories</div>
 
   <div class="spotify">
     <iframe
       src="https://open.spotify.com/embed/track/3qDGbTc6IxmYVkMKN12Bab"
       width="100%" height="152"
       frameborder="0"
-      allow="encrypted-media">
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
     </iframe>
   </div>
 
@@ -191,7 +196,7 @@ h1{
   <div class="desc">
     If my songs find a place in your heart, stay with me.<br>
     I’m always singing untold stories.<br><br>
-    Thank you for listening. 🤍
+    Thank you for listening, and for all the love and blessings. 🤍
   </div>
 
   <div class="footer">
