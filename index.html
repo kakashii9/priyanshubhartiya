@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Priyanshu Bhartiya | Music</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root{
-  --glass: rgba(0,0,0,.55);
-  --border: rgba(255,255,255,.18);
-  --text-soft: rgba(255,255,255,.75);
+  --glass: rgba(0,0,0,.58);
+  --border: rgba(255,255,255,.16);
+  --soft: rgba(255,255,255,.75);
 }
 
 *{ box-sizing:border-box; }
@@ -23,27 +23,27 @@ html,body{
   overflow-x:hidden;
 }
 
-/* ===== BACKGROUND CANVAS (NEVER SCROLLS) ===== */
-#bg-canvas{
+/* ===== ABSOLUTE ZERO-JITTER BACKGROUND ===== */
+.bg{
   position:fixed;
   inset:0;
   z-index:-3;
   background:
-    radial-gradient(circle at 20% 20%, rgba(255,80,80,.25), transparent 45%),
-    radial-gradient(circle at 80% 30%, rgba(120,180,255,.25), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(180,120,255,.25), transparent 50%),
+    radial-gradient(circle at 15% 20%, rgba(255,90,120,.35), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(120,180,255,.35), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(180,120,255,.35), transparent 50%),
     url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
-  filter: blur(22px) saturate(1.2);
-  transform: scale(1.15);
-  will-change: transform;
+  transform:scale(1.12);
 }
 
-/* Dark cinematic wash */
-#bg-overlay{
-  position:fixed;
+/* PRE-BLURRED GLASS WASH (NO FILTER) */
+.bg::after{
+  content:"";
+  position:absolute;
   inset:0;
-  background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8));
-  z-index:-2;
+  background:
+    linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.82)),
+    radial-gradient(circle at center, rgba(255,255,255,.06), transparent 70%);
 }
 
 /* ===== MAIN CARD ===== */
@@ -53,10 +53,9 @@ html,body{
   padding:28px 22px 46px;
   text-align:center;
   background:var(--glass);
-  backdrop-filter: blur(10px);
   border-radius:20px;
   border:1px solid var(--border);
-  box-shadow:0 30px 80px rgba(0,0,0,.6);
+  box-shadow:0 35px 90px rgba(0,0,0,.7);
   transform:translateZ(0);
 }
 
@@ -65,12 +64,19 @@ html,body{
   width:100%;
   border-radius:18px;
   margin-bottom:22px;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  box-shadow:0 22px 55px rgba(0,0,0,.65);
 }
 
 /* TEXT */
-h1{ font-size:30px; margin-bottom:6px; }
-.tagline{ font-size:14px; opacity:.75; }
+h1{
+  font-size:30px;
+  margin-bottom:6px;
+}
+
+.tagline{
+  font-size:14px;
+  opacity:.75;
+}
 
 .slogan{
   font-size:15px;
@@ -78,7 +84,7 @@ h1{ font-size:30px; margin-bottom:6px; }
   letter-spacing:1.6px;
   text-transform:uppercase;
   margin:14px 0 30px;
-  background:linear-gradient(90deg,#fff,#bbb);
+  background:linear-gradient(90deg,#fff,#cfcfcf);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -87,7 +93,7 @@ h1{ font-size:30px; margin-bottom:6px; }
 .section-title{
   font-size:13px;
   letter-spacing:2px;
-  opacity:.75;
+  opacity:.7;
   margin:36px 0 16px;
 }
 
@@ -100,7 +106,7 @@ h1{ font-size:30px; margin-bottom:6px; }
   border:1px solid var(--border);
   color:#fff;
   text-decoration:none;
-  transition:transform .25s ease, background .25s ease;
+  transition:transform .22s ease, background .22s ease;
 }
 
 .link:hover{
@@ -111,7 +117,7 @@ h1{ font-size:30px; margin-bottom:6px; }
 
 .highlight{
   border-color:#fff;
-  box-shadow:0 0 22px rgba(255,255,255,.3);
+  box-shadow:0 0 24px rgba(255,255,255,.3);
 }
 
 /* SPOTIFY */
@@ -145,8 +151,7 @@ h1{ font-size:30px; margin-bottom:6px; }
 
 <body>
 
-<div id="bg-canvas"></div>
-<div id="bg-overlay"></div>
+<div class="bg"></div>
 
 <div class="container">
 
@@ -159,17 +164,25 @@ h1{ font-size:30px; margin-bottom:6px; }
   <div class="slogan">Singing Untold Stories</div>
 
   <div class="spotify">
-    <iframe src="https://open.spotify.com/embed/track/3qDGbTc6IxmYVkMKN12Bab"
-      width="100%" height="152" frameborder="0" allow="encrypted-media">
+    <iframe
+      src="https://open.spotify.com/embed/track/3qDGbTc6IxmYVkMKN12Bab"
+      width="100%" height="152"
+      frameborder="0"
+      allow="encrypted-media">
     </iframe>
   </div>
 
   <div class="section-title">LISTEN</div>
-  <a class="link highlight" href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab" target="_blank">🎧 Cravings — Latest Release</a>
+
+  <a class="link highlight" href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab" target="_blank">
+    🎧 Cravings — Latest Release
+  </a>
+
   <a class="link" href="https://youtu.be/nCMW5CkNr6U" target="_blank">🎵 Pehli Baar</a>
   <a class="link" href="https://youtu.be/d2wyBVrCmh4" target="_blank">🎵 Phir Milenge</a>
 
   <div class="section-title">FOLLOW</div>
+
   <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
   <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">Apple Music</a>
   <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
@@ -187,15 +200,6 @@ h1{ font-size:30px; margin-bottom:6px; }
   </div>
 
 </div>
-
-<script>
-/* ===== FAKE PARALLAX (ZERO JITTER) ===== */
-const bg = document.getElementById("bg-canvas");
-window.addEventListener("scroll", () => {
-  const y = window.scrollY * 0.03;
-  bg.style.transform = `scale(1.15) translateY(${y}px)`;
-});
-</script>
 
 </body>
 </html>
