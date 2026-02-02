@@ -6,81 +6,97 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family: 'Inter', sans-serif;
-  color:#fff;
-  background:#000;
+  margin:0;
+  font-family: 'Georgia', serif;
+  background:#070707;
+  color:#f2f2f2;
 }
 
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px 20px;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.9)),
-    url("YOUR_IMAGE_URL_HERE") center/cover no-repeat;
+.wrapper{
+  max-width:700px;
+  margin:auto;
+  padding:100px 26px 120px;
+}
+
+.hero-img{
+  width:100%;
+  border-radius:18px;
+  margin-bottom:50px;
 }
 
 h1{
-  font-size:clamp(44px,6vw,78px);
-  letter-spacing:1px;
+  font-size:46px;
+  margin-bottom:6px;
 }
 
 .role{
-  margin-top:8px;
-  opacity:.7;
+  font-size:14px;
+  opacity:.6;
 }
 
 .tagline{
-  margin-top:28px;
-  font-size:22px;
+  margin-top:20px;
+  font-size:20px;
   font-weight:600;
-  letter-spacing:2px;
+  letter-spacing:1px;
 }
 
-.btns{
+.poem{
+  margin-top:40px;
+  font-size:20px;
+  line-height:1.9;
+  opacity:.8;
+}
+
+.song{
   margin-top:50px;
-  display:flex;
-  gap:16px;
-  justify-content:center;
-  flex-wrap:wrap;
 }
 
-.btn{
-  padding:14px 28px;
-  border-radius:40px;
-  border:1px solid #fff;
+.song a{
   text-decoration:none;
   color:#fff;
-  font-weight:600;
-  transition:.3s;
 }
 
-.btn.primary{
-  background:#fff;
-  color:#000;
+.song h3{
+  font-size:24px;
 }
 
-.btn:hover{transform:translateY(-2px)}
+.song span{
+  font-size:13px;
+  opacity:.6;
+}
 </style>
 </head>
 
 <body>
-<section class="hero">
-  <div>
-    <h1>Priyanshu Bhartiya</h1>
-    <div class="role">Singer · Composer · Songwriter</div>
-    <div class="tagline">SINGING unTold STORIES</div>
+<div class="wrapper">
 
-    <div class="btns">
-      <a class="btn primary" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
-      <a class="btn" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
-    </div>
-  </div>
-</section>
+<img class="hero-img" src="YOUR_IMAGE_URL_HERE">
+
+<h1>Priyanshu Bhartiya</h1>
+<div class="role">Singer · Composer · Songwriter</div>
+<div class="tagline">SINGING unTold STORIES</div>
+
+<div class="poem">
+Some songs are not meant to be healed.<br>
+They are meant to stay.
+</div>
+
+<div class="song">
+  <a href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">
+    <h3>Cravings</h3>
+    <span>Latest · Spotify</span>
+  </a>
+</div>
+
+<div class="song">
+  <a href="https://youtu.be/nCMW5CkNr6U" target="_blank">
+    <h3>Pehli Baar</h3>
+    <span>YouTube</span>
+  </a>
+</div>
+
+</div>
 </body>
 </html>
