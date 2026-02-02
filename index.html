@@ -6,52 +6,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --glass: rgba(15,15,15,0.72);
+  --border: rgba(255,255,255,0.12);
+}
+
+*{ box-sizing:border-box; }
 
 html,body{
-  width:100%;
-  height:100%;
-}
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  margin:0;
+  padding:0;
   background:#000;
   color:#fff;
-  overflow-x:hidden;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+  scroll-behavior:smooth;
 }
 
-/* ===== MAIN CONTAINER ===== */
-.container{
-  max-width:480px;
-  margin:40px auto;
-  padding:26px 22px 42px;
-  background:rgba(0,0,0,0.6);
-  border-radius:18px;
+/* ===== STATIC BACKGROUND (NO SCROLL JITTER) ===== */
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
 }
 
-/* ===== HERO (BLUR ONLY INSIDE HERO, NOT SCROLL) ===== */
-.hero{
-  position:relative;
-  margin-bottom:22px;
-}
-
-.hero-bg{
+.bg::after{
+  content:"";
   position:absolute;
   inset:0;
-  background:url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
-  filter:blur(14px);
-  transform:scale(1.1);
-  z-index:-1;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
+/* ===== MAIN CARD ===== */
+.container{
+  max-width:480px;
+  margin:60px auto;
+  padding:28px 22px 44px;
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:22px;
+  transform:translateZ(0);
+  animation:fadeUp .8s ease;
+}
+
+/* ===== HERO ===== */
 .hero img{
   width:100%;
   border-radius:18px;
-  display:block;
-  box-shadow:0 18px 45px rgba(0,0,0,0.6);
+  box-shadow:0 25px 60px rgba(0,0,0,.6);
 }
 
-/* ===== TEXT ===== */
+/* ===== TYPOGRAPHY ===== */
 h1{
   font-size:30px;
   margin:18px 0 6px;
@@ -59,162 +68,139 @@ h1{
 
 .tagline{
   font-size:14px;
-  opacity:.75;
+  opacity:.7;
 }
 
 .slogan{
-  margin:12px 0 28px;
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:1.6px;
+  margin:16px 0 30px;
+  font-size:14px;
+  letter-spacing:2px;
   text-transform:uppercase;
+  opacity:.9;
 }
 
 /* ===== SECTIONS ===== */
 .section-title{
-  font-size:13px;
+  margin:34px 0 14px;
+  font-size:12px;
   letter-spacing:2px;
-  opacity:.8;
-  margin:34px 0 16px;
+  opacity:.65;
 }
 
 /* ===== LINKS ===== */
 .link{
-  display:block;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   padding:15px;
   margin:12px 0;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,0.25);
+  border-radius:16px;
+  border:1px solid var(--border);
   color:#fff;
   text-decoration:none;
-  transition:background .2s ease;
+  transition:transform .2s ease, background .2s ease;
+  will-change:transform;
 }
 
 .link:hover{
+  transform:translateY(-2px);
   background:#fff;
   color:#000;
 }
 
 .highlight{
-  border:1px solid #fff;
+  border-color:#fff;
+  box-shadow:0 0 22px rgba(255,255,255,.25);
 }
 
 /* ===== SPOTIFY ===== */
 .spotify{
-  margin:18px 0 10px;
-  border-radius:14px;
+  margin-top:20px;
+  border-radius:16px;
   overflow:hidden;
 }
 
 /* ===== TEXT ===== */
 .desc{
+  margin-top:34px;
   font-size:14px;
   line-height:1.7;
-  opacity:.8;
-  margin-top:34px;
+  opacity:.75;
 }
 
 /* ===== FOOTER ===== */
 .footer{
-  margin-top:36px;
+  margin-top:40px;
   font-size:13px;
-  opacity:.7;
+  opacity:.6;
 }
 
 .footer a{
   color:#fff;
   text-decoration:none;
 }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{
+  from{ opacity:0; transform:translateY(12px); }
+  to{ opacity:1; transform:none; }
+}
+
+/* ===== MOBILE OPT ===== */
+@media(max-width:600px){
+  .container{ margin:40px 14px; }
+}
 </style>
 </head>
 
 <body>
 
+<div class="bg"></div>
+
 <div class="container">
 
-  <!-- HERO -->
   <div class="hero">
-    <div class="hero-bg"></div>
     <img src="https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg" alt="Priyanshu Bhartiya">
   </div>
 
   <h1>Priyanshu Bhartiya</h1>
   <div class="tagline">Singer · Composer · Songwriter</div>
-  <div class="slogan">Singing unTold Stories</div>
+  <div class="slogan">Singing Untold Stories</div>
 
-  <!-- SPOTIFY EMBED -->
   <div class="spotify">
     <iframe
       src="https://open.spotify.com/embed/track/3qDGbTc6IxmYVkMKN12Bab"
       width="100%" height="152"
       frameborder="0"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+      allow="encrypted-media">
     </iframe>
   </div>
 
-  <!-- LISTEN -->
   <div class="section-title">LISTEN</div>
 
-  <a class="link highlight"
-     href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab"
-     target="_blank">
+  <a class="link highlight" href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab" target="_blank">
     🎧 Cravings — Latest Release
   </a>
 
-  <a class="link"
-     href="https://youtu.be/nCMW5CkNr6U?si=NIS8borYv4i8rn-h"
-     target="_blank">
-    🎵 Pehli Baar
-  </a>
+  <a class="link" href="https://youtu.be/nCMW5CkNr6U" target="_blank">🎵 Pehli Baar</a>
+  <a class="link" href="https://youtu.be/d2wyBVrCmh4" target="_blank">🎵 Phir Milenge</a>
 
-  <a class="link"
-     href="https://youtu.be/d2wyBVrCmh4?si=1k7qG4Xk5sj8COCn"
-     target="_blank">
-    🎵 Phir Milenge
-  </a>
-
-  <!-- POPULAR -->
-  <div class="section-title">POPULAR SONGS</div>
-
-  <a class="link"
-     href="https://youtu.be/eLY1M3MsQZM?si=St7Spgr1rNNyRn41"
-     target="_blank">
-    ❤️ Marham — 80K+
-  </a>
-
-  <a class="link"
-     href="https://youtu.be/QpVTHysXjCY?si=YVrv9dAq_iC6RG3A"
-     target="_blank">
-    🔥 Fanaa Kar Diya 2.0 — 45K+
-  </a>
-
-  <!-- FOLLOW -->
   <div class="section-title">FOLLOW</div>
 
-  <a class="link"
-     href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv"
-     target="_blank">Spotify</a>
+  <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
+  <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">Apple Music</a>
+  <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
+  <a class="link" href="https://instagram.com/ipriyanshubhartiya" target="_blank">Instagram</a>
 
-  <a class="link"
-     href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1"
-     target="_blank">YouTube</a>
-
-  <a class="link"
-     href="https://instagram.com/ipriyanshubhartiya"
-     target="_blank">Instagram</a>
-
-  <!-- MESSAGE -->
   <div class="desc">
     If my songs find a place in your heart, stay with me.<br>
     I’m always singing untold stories.<br><br>
-    Thank you for listening, and for all the love and blessings. 🤍
+    Thank you for listening and for all the love. 🤍
   </div>
 
-  <!-- BUSINESS -->
   <div class="footer">
-    📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">
-      biz.priyanshubhartiya@gmail.com
-    </a>
+    For business & collaborations<br>
+    📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
   </div>
 
 </div>
