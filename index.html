@@ -6,161 +6,135 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-* { box-sizing: border-box; }
+*{box-sizing:border-box;margin:0;padding:0}
 
-html, body {
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
+html,body{
+  width:100%;
+  height:100%;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #ffffff;
-  background: #000;
-  overflow-x: hidden;
-  animation: fadeIn 0.8s ease;
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* 🔥 OPTIMIZED BACKGROUND (NO JITTER) */
-body::before {
-  content: "";
-  position: absolute; /* IMPORTANT */
-  inset: 0;
-  background:
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
-    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center / cover no-repeat;
-  filter: blur(14px);
-  transform: scale(1.08);
-  z-index: -1;
+/* ===== MAIN CONTAINER ===== */
+.container{
+  max-width:480px;
+  margin:40px auto;
+  padding:26px 22px 42px;
+  background:rgba(0,0,0,0.6);
+  border-radius:18px;
 }
 
-/* MAIN CONTAINER */
-.container {
-  max-width: 480px;
-  margin: auto;
-  padding: 28px 22px 46px;
-  text-align: center;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(6px);
-  border-radius: 18px;
-  will-change: transform;
+/* ===== HERO (BLUR ONLY INSIDE HERO, NOT SCROLL) ===== */
+.hero{
+  position:relative;
+  margin-bottom:22px;
 }
 
-/* HERO IMAGE */
-.hero img {
-  width: 100%;
-  border-radius: 20px;
-  margin-bottom: 22px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-  animation: zoomIn 0.9s ease;
-  will-change: transform;
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
+  filter:blur(14px);
+  transform:scale(1.1);
+  z-index:-1;
 }
 
-h1 {
-  font-size: 30px;
-  margin-bottom: 6px;
+.hero img{
+  width:100%;
+  border-radius:18px;
+  display:block;
+  box-shadow:0 18px 45px rgba(0,0,0,0.6);
 }
 
-.tagline {
-  font-size: 14px;
-  opacity: 0.75;
+/* ===== TEXT ===== */
+h1{
+  font-size:30px;
+  margin:18px 0 6px;
 }
 
-/* BRAND SLOGAN */
-.slogan {
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  opacity: 0.9;
-  margin: 14px 0 30px;
+.tagline{
+  font-size:14px;
+  opacity:.75;
 }
 
-/* SECTION TITLES */
-.section-title {
-  font-size: 13px;
-  letter-spacing: 2px;
-  opacity: 0.8;
-  margin: 36px 0 16px;
+.slogan{
+  margin:12px 0 28px;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
 }
 
-/* LINKS / BUTTONS */
-.link {
-  display: block;
-  padding: 15px;
-  margin: 12px 0;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.25);
-  text-decoration: none;
-  color: #ffffff;
-  transition: background 0.25s ease, transform 0.25s ease;
-  will-change: transform;
+/* ===== SECTIONS ===== */
+.section-title{
+  font-size:13px;
+  letter-spacing:2px;
+  opacity:.8;
+  margin:34px 0 16px;
 }
 
-.link:hover {
-  background: #ffffff;
-  color: #000000;
-  transform: translateY(-1px); /* SMOOTH */
+/* ===== LINKS ===== */
+.link{
+  display:block;
+  padding:15px;
+  margin:12px 0;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.25);
+  color:#fff;
+  text-decoration:none;
+  transition:background .2s ease;
 }
 
-.highlight {
-  border: 1px solid #ffffff;
-  box-shadow: 0 0 18px rgba(255,255,255,0.25);
+.link:hover{
+  background:#fff;
+  color:#000;
 }
 
-/* SPOTIFY EMBED */
-.spotify {
-  margin-top: 20px;
-  border-radius: 16px;
-  overflow: hidden;
+.highlight{
+  border:1px solid #fff;
 }
 
-/* DESCRIPTION */
-.desc {
-  font-size: 14px;
-  line-height: 1.7;
-  opacity: 0.8;
-  margin-top: 34px;
+/* ===== SPOTIFY ===== */
+.spotify{
+  margin:18px 0 10px;
+  border-radius:14px;
+  overflow:hidden;
 }
 
-/* FOOTER */
-.footer {
-  font-size: 13px;
-  opacity: 0.7;
-  margin-top: 38px;
+/* ===== TEXT ===== */
+.desc{
+  font-size:14px;
+  line-height:1.7;
+  opacity:.8;
+  margin-top:34px;
 }
 
-.footer a {
-  color: #ffffff;
-  text-decoration: none;
+/* ===== FOOTER ===== */
+.footer{
+  margin-top:36px;
+  font-size:13px;
+  opacity:.7;
 }
 
-/* ANIMATIONS */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes zoomIn {
-  from { transform: scale(0.96); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* MOBILE EXTRA SMOOTH */
-@media (max-width: 600px){
-  body::before{
-    filter: blur(10px);
-  }
+.footer a{
+  color:#fff;
+  text-decoration:none;
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
   <!-- HERO -->
   <div class="hero">
+    <div class="hero-bg"></div>
     <img src="https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg" alt="Priyanshu Bhartiya">
   </div>
 
@@ -168,9 +142,9 @@ h1 {
   <div class="tagline">Singer · Composer · Songwriter</div>
   <div class="slogan">Singing unTold Stories</div>
 
-  <!-- SPOTIFY -->
+  <!-- SPOTIFY EMBED -->
   <div class="spotify">
-    <iframe style="border-radius:16px"
+    <iframe
       src="https://open.spotify.com/embed/track/3qDGbTc6IxmYVkMKN12Bab"
       width="100%" height="152"
       frameborder="0"
@@ -181,27 +155,55 @@ h1 {
   <!-- LISTEN -->
   <div class="section-title">LISTEN</div>
 
-  <a class="link highlight" href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab" target="_blank">
+  <a class="link highlight"
+     href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab"
+     target="_blank">
     🎧 Cravings — Latest Release
   </a>
 
-  <a class="link" href="https://youtu.be/nCMW5CkNr6U" target="_blank">
+  <a class="link"
+     href="https://youtu.be/nCMW5CkNr6U?si=NIS8borYv4i8rn-h"
+     target="_blank">
     🎵 Pehli Baar
   </a>
 
-  <a class="link" href="https://youtu.be/d2wyBVrCmh4" target="_blank">
+  <a class="link"
+     href="https://youtu.be/d2wyBVrCmh4?si=1k7qG4Xk5sj8COCn"
+     target="_blank">
     🎵 Phir Milenge
+  </a>
+
+  <!-- POPULAR -->
+  <div class="section-title">POPULAR SONGS</div>
+
+  <a class="link"
+     href="https://youtu.be/eLY1M3MsQZM?si=St7Spgr1rNNyRn41"
+     target="_blank">
+    ❤️ Marham — 80K+
+  </a>
+
+  <a class="link"
+     href="https://youtu.be/QpVTHysXjCY?si=YVrv9dAq_iC6RG3A"
+     target="_blank">
+    🔥 Fanaa Kar Diya 2.0 — 45K+
   </a>
 
   <!-- FOLLOW -->
   <div class="section-title">FOLLOW</div>
 
-  <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
-  <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">Apple Music</a>
-  <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
-  <a class="link" href="https://instagram.com/ipriyanshubhartiya" target="_blank">Instagram</a>
+  <a class="link"
+     href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv"
+     target="_blank">Spotify</a>
 
-  <!-- TEXT -->
+  <a class="link"
+     href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1"
+     target="_blank">YouTube</a>
+
+  <a class="link"
+     href="https://instagram.com/ipriyanshubhartiya"
+     target="_blank">Instagram</a>
+
+  <!-- MESSAGE -->
   <div class="desc">
     If my songs find a place in your heart, stay with me.<br>
     I’m always singing untold stories.<br><br>
@@ -210,10 +212,12 @@ h1 {
 
   <!-- BUSINESS -->
   <div class="footer">
-    For business & collaborations<br>
-    📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
+    📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">
+      biz.priyanshubhartiya@gmail.com
+    </a>
   </div>
 
 </div>
+
 </body>
 </html>
