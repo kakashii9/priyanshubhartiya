@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Priyanshu Bhartiya | Singing unTold Stories</title>
+<title>Priyanshu Bhartiya | Music</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -14,37 +14,39 @@ body {
   color: #ffffff;
   background: #000;
   overflow-x: hidden;
+  animation: fadeIn 1.2s ease;
 }
 
-/* Background */
+/* Background image with blur */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
     url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center / cover no-repeat;
   filter: blur(18px);
   transform: scale(1.1);
   z-index: -1;
 }
 
+/* Main container */
 .container {
   max-width: 480px;
   margin: auto;
-  padding: 30px 22px 44px;
+  padding: 28px 22px 44px;
   text-align: center;
 }
 
-/* Hero */
+/* Hero image */
 .hero img {
   width: 100%;
-  border-radius: 18px;
-  margin-bottom: 24px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  border-radius: 20px;
+  margin-bottom: 22px;
+  box-shadow: 0 22px 55px rgba(0,0,0,0.65);
+  animation: zoomIn 1.2s ease;
 }
 
-/* Text */
 h1 {
   font-size: 30px;
   margin-bottom: 6px;
@@ -55,16 +57,17 @@ h1 {
   opacity: 0.75;
 }
 
+/* Brand slogan */
 .slogan {
   font-size: 15px;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
-  margin: 12px 0 30px;
   opacity: 0.9;
+  margin: 12px 0 30px;
 }
 
-/* Sections */
+/* Section titles */
 .section-title {
   font-size: 13px;
   letter-spacing: 2px;
@@ -77,7 +80,7 @@ h1 {
   display: block;
   padding: 15px;
   margin: 12px 0;
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.25);
   text-decoration: none;
   color: #ffffff;
@@ -93,12 +96,12 @@ h1 {
 
 .highlight {
   border: 1px solid #ffffff;
-  box-shadow: 0 0 18px rgba(255,255,255,0.2);
+  box-shadow: 0 0 20px rgba(255,255,255,0.25);
 }
 
-/* Spotify */
+/* Spotify embed */
 .spotify {
-  margin-bottom: 24px;
+  margin-top: 20px;
   border-radius: 16px;
   overflow: hidden;
 }
@@ -108,19 +111,30 @@ h1 {
   font-size: 14px;
   line-height: 1.7;
   opacity: 0.8;
-  margin-top: 32px;
+  margin-top: 34px;
 }
 
 /* Footer */
 .footer {
   font-size: 13px;
   opacity: 0.7;
-  margin-top: 36px;
+  margin-top: 38px;
 }
 
 .footer a {
   color: #ffffff;
   text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 </style>
 </head>
@@ -137,7 +151,7 @@ h1 {
   <div class="tagline">Singer · Composer · Songwriter</div>
   <div class="slogan">Singing unTold Stories</div>
 
-  <!-- SPOTIFY -->
+  <!-- SPOTIFY EMBED -->
   <div class="spotify">
     <iframe style="border-radius:16px"
       src="https://open.spotify.com/embed/track/3qDGbTc6IxmYVkMKN12Bab"
@@ -147,7 +161,7 @@ h1 {
     </iframe>
   </div>
 
-  <!-- LISTEN -->
+  <!-- MUSIC LINKS -->
   <div class="section-title">LISTEN</div>
 
   <a class="link highlight" href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab" target="_blank">
