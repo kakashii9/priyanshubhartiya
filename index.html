@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Priyanshu Bhartiya | Music</title>
+<title>Priyanshu Bhartiya®</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+/* ================= ROOT ================= */
 :root{
   --glass: rgba(0,0,0,.55);
-  --border: rgba(255,255,255,.18);
-  --text-soft: rgba(255,255,255,.75);
+  --border: rgba(255,255,255,.12);
+  --soft: rgba(255,255,255,.75);
 }
 
 *{ box-sizing:border-box; }
@@ -19,134 +20,155 @@ html,body{
   padding:0;
   background:#000;
   color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
   overflow-x:hidden;
 }
 
-/* ===== BACKGROUND CANVAS (NEVER SCROLLS) ===== */
-#bg-canvas{
+/* ================= CINEMATIC BACKGROUND ================= */
+body::before{
+  content:"";
   position:fixed;
   inset:0;
-  z-index:-3;
   background:
-    radial-gradient(circle at 20% 20%, rgba(255,80,80,.25), transparent 45%),
-    radial-gradient(circle at 80% 30%, rgba(120,180,255,.25), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(180,120,255,.25), transparent 50%),
-    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
-  filter: blur(22px) saturate(1.2);
-  transform: scale(1.15);
-  will-change: transform;
-}
-
-/* Dark cinematic wash */
-#bg-overlay{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8));
+    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg")
+    center/cover no-repeat;
+  filter: blur(26px) brightness(.75) saturate(1.1);
+  transform: scale(1.18);
   z-index:-2;
 }
 
-/* ===== MAIN CARD ===== */
-.container{
-  max-width:480px;
-  margin:60px auto;
-  padding:28px 22px 46px;
-  text-align:center;
-  background:var(--glass);
-  backdrop-filter: blur(10px);
-  border-radius:20px;
-  border:1px solid var(--border);
-  box-shadow:0 30px 80px rgba(0,0,0,.6);
-  transform:translateZ(0);
+/* Dark luxury wash */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.55),
+      rgba(0,0,0,.85)
+    );
+  z-index:-1;
 }
 
-/* HERO */
+/* ================= MAIN BRAND CARD ================= */
+.container{
+  max-width:520px;
+  margin:70px auto;
+  padding:34px 26px 48px;
+  background:var(--glass);
+  backdrop-filter: blur(14px);
+  border-radius:26px;
+  border:1px solid var(--border);
+  box-shadow:
+    0 40px 120px rgba(0,0,0,.75);
+  text-align:center;
+}
+
+/* ================= HERO ================= */
 .hero img{
   width:100%;
-  border-radius:18px;
-  margin-bottom:22px;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  border-radius:22px;
+  margin-bottom:26px;
+  box-shadow:0 30px 70px rgba(0,0,0,.7);
 }
 
-/* TEXT */
-h1{ font-size:30px; margin-bottom:6px; }
-.tagline{ font-size:14px; opacity:.75; }
+/* ================= TYPOGRAPHY ================= */
+h1{
+  font-size:32px;
+  font-weight:700;
+  letter-spacing:.4px;
+  margin:0;
+}
+
+.tagline{
+  font-size:14px;
+  opacity:.7;
+  margin-top:6px;
+}
 
 .slogan{
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:1.6px;
+  margin:18px 0 34px;
+  font-size:14px;
+  letter-spacing:3px;
   text-transform:uppercase;
-  margin:14px 0 30px;
-  background:linear-gradient(90deg,#fff,#bbb);
+  font-weight:600;
+  background:linear-gradient(90deg,#fff,#aaa);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 .section-title{
-  font-size:13px;
-  letter-spacing:2px;
-  opacity:.75;
-  margin:36px 0 16px;
+  font-size:12px;
+  letter-spacing:3px;
+  opacity:.6;
+  margin:42px 0 18px;
 }
 
-/* LINKS */
+/* ================= LINKS ================= */
 .link{
   display:block;
-  padding:15px;
-  margin:12px 0;
-  border-radius:16px;
+  padding:16px;
+  margin:14px 0;
+  border-radius:18px;
   border:1px solid var(--border);
   color:#fff;
   text-decoration:none;
-  transition:transform .25s ease, background .25s ease;
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease;
 }
 
 .link:hover{
   background:#fff;
   color:#000;
-  transform:translateY(-2px);
+  transform:translateY(-3px);
 }
 
 .highlight{
   border-color:#fff;
-  box-shadow:0 0 22px rgba(255,255,255,.3);
+  box-shadow:0 0 30px rgba(255,255,255,.25);
 }
 
-/* SPOTIFY */
+/* ================= SPOTIFY ================= */
 .spotify{
-  margin-top:20px;
-  border-radius:16px;
+  margin-top:24px;
+  border-radius:18px;
   overflow:hidden;
 }
 
-/* DESCRIPTION */
+/* ================= BRAND MESSAGE ================= */
 .desc{
   font-size:14px;
-  line-height:1.7;
+  line-height:1.8;
   opacity:.8;
-  margin-top:34px;
+  margin-top:40px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 .footer{
+  margin-top:42px;
   font-size:13px;
   opacity:.7;
-  margin-top:38px;
 }
 
-/* MOBILE */
+.footer a{
+  color:#fff;
+  text-decoration:none;
+}
+
+/* ================= MOBILE ================= */
 @media(max-width:600px){
-  .container{ margin:40px 14px; }
+  .container{
+    margin:42px 14px;
+  }
 }
 </style>
 </head>
 
 <body>
-
-<div id="bg-canvas"></div>
-<div id="bg-overlay"></div>
 
 <div class="container">
 
@@ -172,13 +194,13 @@ h1{ font-size:30px; margin-bottom:6px; }
   <div class="section-title">FOLLOW</div>
   <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
   <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">Apple Music</a>
-  <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
+  <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA" target="_blank">YouTube</a>
   <a class="link" href="https://instagram.com/ipriyanshubhartiya" target="_blank">Instagram</a>
 
   <div class="desc">
-    If my songs find a place in your heart, stay with me.<br>
-    I’m always singing untold stories.<br><br>
-    Thank you for listening. 🤍
+    If my songs find a place in your heart,<br>
+    stay with me.<br><br>
+    I’m always singing untold stories. 🤍
   </div>
 
   <div class="footer">
@@ -187,15 +209,6 @@ h1{ font-size:30px; margin-bottom:6px; }
   </div>
 
 </div>
-
-<script>
-/* ===== FAKE PARALLAX (ZERO JITTER) ===== */
-const bg = document.getElementById("bg-canvas");
-window.addEventListener("scroll", () => {
-  const y = window.scrollY * 0.03;
-  bg.style.transform = `scale(1.15) translateY(${y}px)`;
-});
-</script>
 
 </body>
 </html>
