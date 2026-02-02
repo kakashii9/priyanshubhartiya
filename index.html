@@ -2,63 +2,227 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Priyanshu Bhartiya</title>
+<title>Priyanshu Bhartiya | Singing unTold Stories</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  margin:0;
   font-family:'Inter',sans-serif;
-  background:#000;
   color:#fff;
+  background:#000;
 }
 
+/* ---------- HERO ---------- */
 .hero{
-  height:100vh;
+  position:relative;
+  min-height:100vh;
   display:flex;
-  align-items:flex-end;
-  padding:60px 30px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
   background:
-    linear-gradient(to top, rgba(0,0,0,.2), rgba(0,0,0,.95)),
-    url("YOUR_IMAGE_URL_HERE") center/cover no-repeat;
+    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.95)),
+    url("HERO_IMAGE_URL") center/cover no-repeat;
+}
+
+.hero-content{
+  max-width:520px;
+}
+
+.profile{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid rgba(255,255,255,.6);
+  margin-bottom:26px;
 }
 
 h1{
-  font-size:clamp(48px,7vw,90px);
+  font-size:clamp(36px,5vw,56px);
+  font-weight:700;
+}
+
+.role{
+  margin-top:6px;
+  opacity:.75;
 }
 
 .tagline{
-  font-size:22px;
+  margin-top:22px;
+  font-size:20px;
+  font-weight:600;
   letter-spacing:2px;
-  margin-top:10px;
 }
 
-.links{
-  margin-top:30px;
+.hero-btns{
+  margin-top:36px;
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
-.links a{
-  display:inline-block;
-  margin-right:16px;
+.btn{
+  padding:14px 28px;
+  border-radius:30px;
+  border:1px solid #fff;
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn.primary{
+  background:#fff;
+  color:#000;
+}
+
+.btn:hover{opacity:.8}
+
+/* ---------- SECTIONS ---------- */
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:90px 20px;
+}
+
+.section h2{
+  font-size:28px;
+  margin-bottom:40px;
+  text-align:center;
+}
+
+/* ---------- SONG CARDS ---------- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+
+.card{
+  background:rgba(255,255,255,.05);
+  padding:26px;
+  border-radius:16px;
+  transition:.3s;
+}
+
+.card:hover{
+  background:rgba(255,255,255,.1);
+  transform:translateY(-4px);
+}
+
+.card a{
   color:#fff;
   text-decoration:none;
-  font-weight:600;
+}
+
+.card h3{
+  font-size:22px;
+  margin-bottom:6px;
+}
+
+.card span{
+  font-size:13px;
+  opacity:.7;
+}
+
+/* ---------- POPULAR ---------- */
+.popular{
+  background:#050505;
+}
+
+/* ---------- FOOTER ---------- */
+.footer{
+  text-align:center;
+  padding:60px 20px;
+  opacity:.7;
+  font-size:14px;
+}
+
+.footer a{
+  color:#fff;
+  text-decoration:none;
+}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:520px){
+  .profile{width:130px;height:130px}
 }
 </style>
 </head>
 
 <body>
+
+<!-- HERO -->
 <section class="hero">
-  <div>
+  <div class="hero-content">
+    <img src="PROFILE_IMAGE_URL" class="profile" alt="Priyanshu Bhartiya">
     <h1>Priyanshu Bhartiya</h1>
+    <div class="role">Singer · Composer · Songwriter</div>
     <div class="tagline">SINGING unTold STORIES</div>
 
-    <div class="links">
-      <a href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
-      <a href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
-      <a href="https://instagram.com/ipriyanshubhartiya" target="_blank">Instagram</a>
+    <div class="hero-btns">
+      <a class="btn primary" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
+      <a class="btn" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
     </div>
   </div>
 </section>
+
+<!-- LATEST -->
+<section class="section">
+  <h2>Latest Releases</h2>
+  <div class="grid">
+    <div class="card">
+      <a href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab" target="_blank">
+        <h3>Cravings</h3>
+        <span>Spotify · Latest Release</span>
+      </a>
+    </div>
+    <div class="card">
+      <a href="https://youtu.be/nCMW5CkNr6U" target="_blank">
+        <h3>Pehli Baar</h3>
+        <span>YouTube</span>
+      </a>
+    </div>
+    <div class="card">
+      <a href="https://youtu.be/d2wyBVrCmh4" target="_blank">
+        <h3>Phir Milenge</h3>
+        <span>YouTube</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- POPULAR -->
+<section class="section popular">
+  <h2>Popular Songs</h2>
+  <div class="grid">
+    <div class="card">
+      <a href="https://youtu.be/eLY1M3MsQZM" target="_blank">
+        <h3>Marham</h3>
+        <span>80K+ Views</span>
+      </a>
+    </div>
+    <div class="card">
+      <a href="https://youtu.be/QpVTHysXjCY" target="_blank">
+        <h3>Fanaa Kar Diya 2.0</h3>
+        <span>45K+ Views</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  For business & collaborations<br>
+  <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a><br><br>
+  Instagram · Spotify · YouTube
+</div>
+
 </body>
 </html>
