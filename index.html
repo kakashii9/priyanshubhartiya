@@ -8,95 +8,57 @@
 <style>
 body{
   margin:0;
-  font-family: 'Georgia', serif;
-  background:#070707;
-  color:#f2f2f2;
-}
-
-.wrapper{
-  max-width:700px;
-  margin:auto;
-  padding:100px 26px 120px;
-}
-
-.hero-img{
-  width:100%;
-  border-radius:18px;
-  margin-bottom:50px;
-}
-
-h1{
-  font-size:46px;
-  margin-bottom:6px;
-}
-
-.role{
-  font-size:14px;
-  opacity:.6;
-}
-
-.tagline{
-  margin-top:20px;
-  font-size:20px;
-  font-weight:600;
-  letter-spacing:1px;
-}
-
-.poem{
-  margin-top:40px;
-  font-size:20px;
-  line-height:1.9;
-  opacity:.8;
-}
-
-.song{
-  margin-top:50px;
-}
-
-.song a{
-  text-decoration:none;
+  font-family:'Inter',sans-serif;
+  background:#000;
   color:#fff;
 }
 
-.song h3{
-  font-size:24px;
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:flex-end;
+  padding:60px 30px;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.2), rgba(0,0,0,.95)),
+    url("YOUR_IMAGE_URL_HERE") center/cover no-repeat;
 }
 
-.song span{
-  font-size:13px;
-  opacity:.6;
+h1{
+  font-size:clamp(48px,7vw,90px);
+}
+
+.tagline{
+  font-size:22px;
+  letter-spacing:2px;
+  margin-top:10px;
+}
+
+.links{
+  margin-top:30px;
+}
+
+.links a{
+  display:inline-block;
+  margin-right:16px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
 }
 </style>
 </head>
 
 <body>
-<div class="wrapper">
+<section class="hero">
+  <div>
+    <h1>Priyanshu Bhartiya</h1>
+    <div class="tagline">SINGING unTold STORIES</div>
 
-<img class="hero-img" src="YOUR_IMAGE_URL_HERE">
-
-<h1>Priyanshu Bhartiya</h1>
-<div class="role">Singer · Composer · Songwriter</div>
-<div class="tagline">SINGING unTold STORIES</div>
-
-<div class="poem">
-Some songs are not meant to be healed.<br>
-They are meant to stay.
-</div>
-
-<div class="song">
-  <a href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">
-    <h3>Cravings</h3>
-    <span>Latest · Spotify</span>
-  </a>
-</div>
-
-<div class="song">
-  <a href="https://youtu.be/nCMW5CkNr6U" target="_blank">
-    <h3>Pehli Baar</h3>
-    <span>YouTube</span>
-  </a>
-</div>
-
-</div>
+    <div class="links">
+      <a href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
+      <a href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
+      <a href="https://instagram.com/ipriyanshubhartiya" target="_blank">Instagram</a>
+    </div>
+  </div>
+</section>
 </body>
 </html>
