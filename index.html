@@ -6,147 +6,141 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{ box-sizing:border-box; }
+* { box-sizing: border-box; }
 
-html,body{
-  margin:0;
-  padding:0;
-  background:#000;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  scroll-behavior:smooth;
-  overflow-x:hidden;
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
-/* ===== CINEMATIC BACKGROUND (FIXED + GPU CACHED) ===== */
-.bg-layer{
-  position:fixed;
-  inset:0;
-  z-index:-2;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #ffffff;
+  background: #000;
+  overflow-x: hidden;
+}
+
+/* ===== EXACT SAME BACKGROUND (BUT FIXED) ===== */
+.bg {
+  position: fixed;
+  inset: 0;
   background:
-    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.75)),
-    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
-  transform:scale(1.08) translateZ(0);
-  will-change:transform;
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+    url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center / cover no-repeat;
+  filter: blur(14px);
+  transform: scale(1.08);
+  z-index: -1;
 }
 
-.bg-layer::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
+/* MAIN CONTAINER — SAME AS ORIGINAL */
+.container {
+  max-width: 480px;
+  margin: auto;
+  padding: 28px 22px 46px;
+  text-align: center;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  border-radius: 18px;
 }
 
-/* ===== MAIN CARD (UNCHANGED AESTHETIC) ===== */
-.container{
-  max-width:480px;
-  margin:30px auto;
-  padding:28px 22px 46px;
-  background:rgba(0,0,0,.55);
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
-  border-radius:18px;
-  text-align:center;
-  transform:translateZ(0);
-  will-change:transform;
+/* HERO IMAGE */
+.hero img {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
 
-/* ===== HERO ===== */
-.hero img{
-  width:100%;
-  border-radius:20px;
-  margin-bottom:22px;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
+/* TEXT */
+h1 {
+  font-size: 30px;
+  margin-bottom: 6px;
 }
 
-/* ===== TYPOGRAPHY ===== */
-h1{ font-size:30px; margin-bottom:6px; }
-
-.tagline{
-  font-size:14px;
-  opacity:.75;
+.tagline {
+  font-size: 14px;
+  opacity: 0.75;
 }
 
-.slogan{
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:1.6px;
-  text-transform:uppercase;
-  margin:14px 0 30px;
-  opacity:.9;
+.slogan {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin: 14px 0 30px;
 }
 
-/* ===== SECTIONS ===== */
-.section-title{
-  font-size:13px;
-  letter-spacing:2px;
-  opacity:.8;
-  margin:36px 0 16px;
+/* SECTION TITLES */
+.section-title {
+  font-size: 13px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  margin: 36px 0 16px;
 }
 
-/* ===== LINKS ===== */
-.link{
-  display:block;
-  padding:15px;
-  margin:12px 0;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.25);
-  color:#fff;
-  text-decoration:none;
-  transition:transform .25s ease, background .25s ease;
-  will-change:transform;
+/* LINKS */
+.link {
+  display: block;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+  text-decoration: none;
+  color: #ffffff;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
-.link:hover{
-  background:#fff;
-  color:#000;
-  transform:translateY(-1px);
+.link:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-1px);
 }
 
-.highlight{
-  border:1px solid #fff;
-  box-shadow:0 0 18px rgba(255,255,255,.25);
+.highlight {
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 18px rgba(255,255,255,0.25);
 }
 
-/* ===== SPOTIFY ===== */
-.spotify{
-  margin-top:20px;
-  border-radius:16px;
-  overflow:hidden;
+/* SPOTIFY */
+.spotify {
+  margin-top: 20px;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-/* ===== TEXT ===== */
-.desc{
-  font-size:14px;
-  line-height:1.7;
-  opacity:.8;
-  margin-top:34px;
+/* DESCRIPTION — CENTERED (UNCHANGED) */
+.desc {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin-top: 34px;
+  text-align: center;
 }
 
-/* ===== FOOTER ===== */
-.footer{
-  font-size:13px;
-  opacity:.7;
-  margin-top:38px;
+/* FOOTER */
+.footer {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 38px;
 }
 
-.footer a{
-  color:#fff;
-  text-decoration:none;
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
-/* ===== MOBILE OPT ===== */
-@media(max-width:600px){
-  .bg-layer::after{ backdrop-filter:blur(10px); }
+/* MOBILE */
+@media (max-width: 600px){
+  .bg {
+    filter: blur(10px);
+  }
 }
-
 </style>
 </head>
 
 <body>
-
-  <div class="bg-layer"></div>
 
 <div class="bg"></div>
 
@@ -158,7 +152,7 @@ h1{ font-size:30px; margin-bottom:6px; }
 
   <h1>Priyanshu Bhartiya</h1>
   <div class="tagline">Singer · Composer · Songwriter</div>
-  <div class="slogan">Singing Untold Stories</div>
+  <div class="slogan">Singing unTold Stories</div>
 
   <div class="spotify">
     <iframe
@@ -188,7 +182,7 @@ h1{ font-size:30px; margin-bottom:6px; }
   <div class="desc">
     If my songs find a place in your heart, stay with me.<br>
     I’m always singing untold stories.<br><br>
-    Thank you for listening and for all the love. 🤍
+    Thank you for listening, and for all the love and blessings. 🤍
   </div>
 
   <div class="footer">
