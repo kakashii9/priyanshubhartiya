@@ -10,33 +10,34 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
-html{
-  scroll-behavior:smooth;
+html,body{
+  width:100%;
+  overflow-x:hidden;
 }
 
 body{
   font-family:'Inter',sans-serif;
   color:#fff;
   background:#000;
-  overflow-x:hidden;
-  overscroll-behavior: none;
+  position:relative;
 }
 
-/* BACKGROUND (optimized) */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
+/* ===== STATIC BLURRED BACKGROUND (NO FIXED) ===== */
+.bg-layer{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:120vh;
   background:
     linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
     url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
   filter:blur(22px);
-  transform:scale(1.12) translateZ(0);
-  will-change: transform;
+  transform:scale(1.15);
   z-index:-1;
 }
 
-/* CARD */
+/* ===== CARD ===== */
 .container{
   max-width:520px;
   margin:40px auto;
@@ -46,16 +47,15 @@ body::before{
   background:rgba(0,0,0,.45);
   border-radius:28px;
   box-shadow:0 40px 120px rgba(0,0,0,.85);
-  contain: layout paint;
+  position:relative;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero img{
   width:100%;
   border-radius:22px;
   margin-bottom:26px;
   box-shadow:0 30px 80px rgba(0,0,0,.75);
-  transform:translateZ(0);
 }
 
 h1{
@@ -77,7 +77,7 @@ h1{
   text-transform:uppercase;
 }
 
-/* SECTIONS */
+/* ===== SECTIONS ===== */
 .section-title{
   margin:46px 0 18px;
   font-size:13px;
@@ -85,7 +85,7 @@ h1{
   opacity:.75;
 }
 
-/* LINKS */
+/* ===== LINKS ===== */
 .link{
   display:block;
   padding:16px;
@@ -95,15 +95,13 @@ h1{
   text-decoration:none;
   color:#fff;
   backdrop-filter:blur(8px);
-  transition:background .3s ease, color .3s ease, transform .3s ease;
-  transform:translateZ(0);
-  will-change: transform;
+  transition:background .25s ease, color .25s ease, transform .25s ease;
 }
 
 .link:hover{
   background:#fff;
   color:#000;
-  transform:translateY(-3px) translateZ(0);
+  transform:translateY(-3px);
 }
 
 .highlight{
@@ -111,21 +109,20 @@ h1{
   box-shadow:0 0 26px rgba(255,255,255,.25);
 }
 
-/* SPOTIFY */
+/* ===== SPOTIFY ===== */
 .spotify{
   margin:34px 0 24px;
   border-radius:18px;
   overflow:hidden;
-  transform:translateZ(0);
 }
 
-/* POPULAR */
+/* ===== POPULAR ===== */
 .popular{
   display:grid;
   gap:16px;
 }
 
-/* TEXT */
+/* ===== TEXT ===== */
 .desc{
   font-size:14px;
   line-height:1.75;
@@ -133,7 +130,7 @@ h1{
   margin-top:46px;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 .footer{
   margin-top:42px;
   font-size:13px;
@@ -148,6 +145,10 @@ h1{
 </head>
 
 <body>
+
+<!-- BACKGROUND -->
+<div class="bg-layer"></div>
+
 <div class="container">
 
   <!-- HERO -->
@@ -170,11 +171,11 @@ h1{
   <!-- LATEST -->
   <div class="section-title">LATEST</div>
 
-  <a class="link highlight" href="https://youtu.be/nCMW5CkNr6U?si=NIS8borYv4i8rn-h" target="_blank">
+  <a class="link highlight" href="https://youtu.be/nCMW5CkNr6U" target="_blank">
     🎵 Pehli Baar
   </a>
 
-  <a class="link" href="https://youtu.be/d2wyBVrCmh4?si=1k7qG4Xk5sj8COCn" target="_blank">
+  <a class="link" href="https://youtu.be/d2wyBVrCmh4" target="_blank">
     🎵 Phir Milenge
   </a>
 
@@ -182,10 +183,10 @@ h1{
   <div class="section-title">POPULAR SONGS</div>
 
   <div class="popular">
-    <a class="link" href="https://youtu.be/eLY1M3MsQZM?si=St7Spgr1rNNyRn41" target="_blank">
+    <a class="link" href="https://youtu.be/eLY1M3MsQZM" target="_blank">
       ❤️ Marham — 80K+
     </a>
-    <a class="link" href="https://youtu.be/QpVTHysXjCY?si=YVrv9dAq_iC6RG3A" target="_blank">
+    <a class="link" href="https://youtu.be/QpVTHysXjCY" target="_blank">
       🔥 Fanaa Kar Diya 2.0 — 45K+
     </a>
   </div>
@@ -194,9 +195,7 @@ h1{
   <div class="section-title">FOLLOW</div>
 
   <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
-  <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">
-    Apple Music
-  </a>
+  <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">Apple Music</a>
   <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">
     YouTube (Subscribe)
   </a>
