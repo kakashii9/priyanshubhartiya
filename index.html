@@ -10,14 +10,19 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:'Inter',sans-serif;
   color:#fff;
   background:#000;
   overflow-x:hidden;
+  overscroll-behavior: none;
 }
 
-/* BACKGROUND */
+/* BACKGROUND (optimized) */
 body::before{
   content:"";
   position:fixed;
@@ -26,7 +31,8 @@ body::before{
     linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
     url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
   filter:blur(22px);
-  transform:scale(1.15);
+  transform:scale(1.12) translateZ(0);
+  will-change: transform;
   z-index:-1;
 }
 
@@ -40,6 +46,7 @@ body::before{
   background:rgba(0,0,0,.45);
   border-radius:28px;
   box-shadow:0 40px 120px rgba(0,0,0,.85);
+  contain: layout paint;
 }
 
 /* HERO */
@@ -48,6 +55,7 @@ body::before{
   border-radius:22px;
   margin-bottom:26px;
   box-shadow:0 30px 80px rgba(0,0,0,.75);
+  transform:translateZ(0);
 }
 
 h1{
@@ -87,13 +95,15 @@ h1{
   text-decoration:none;
   color:#fff;
   backdrop-filter:blur(8px);
-  transition:.3s ease;
+  transition:background .3s ease, color .3s ease, transform .3s ease;
+  transform:translateZ(0);
+  will-change: transform;
 }
 
 .link:hover{
   background:#fff;
   color:#000;
-  transform:translateY(-3px);
+  transform:translateY(-3px) translateZ(0);
 }
 
 .highlight{
@@ -106,6 +116,7 @@ h1{
   margin:34px 0 24px;
   border-radius:18px;
   overflow:hidden;
+  transform:translateZ(0);
 }
 
 /* POPULAR */
@@ -183,6 +194,9 @@ h1{
   <div class="section-title">FOLLOW</div>
 
   <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
+  <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">
+    Apple Music
+  </a>
   <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">
     YouTube (Subscribe)
   </a>
