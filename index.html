@@ -7,10 +7,10 @@
 
 <style>
 :root{
-  --bg:#0a0a0a;
-  --card:#121212;
+  --bg:#050505;
+  --panel:#0d0f0f;
+  --stroke:rgba(255,255,255,.12);
   --soft:rgba(255,255,255,.72);
-  --line:rgba(255,255,255,.14);
 }
 
 *{box-sizing:border-box;}
@@ -23,61 +23,43 @@ html,body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
-/* ===== STATIC CINEMATIC BACKGROUND ===== */
+/* ===== STATIC CINEMATIC BACKGROUND (NO BLUR) ===== */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   background:
-    radial-gradient(60% 40% at 20% 20%, rgba(255,90,120,.18), transparent 60%),
-    radial-gradient(50% 40% at 80% 30%, rgba(120,180,255,.18), transparent 60%),
-    radial-gradient(60% 50% at 50% 80%, rgba(180,120,255,.18), transparent 65%);
-  z-index:-2;
+    radial-gradient(60% 40% at 20% 20%, rgba(40,120,120,.25), transparent 60%),
+    radial-gradient(50% 40% at 80% 30%, rgba(60,80,140,.25), transparent 60%),
+    radial-gradient(60% 50% at 50% 80%, rgba(80,60,120,.25), transparent 65%),
+    linear-gradient(#050505,#050505);
+  z-index:-1;
 }
 
-/* ===== FLOATING CANVAS ===== */
-.stage{
-  max-width:460px;
-  margin:90px auto;
-  padding-bottom:60px;
-  position:relative;
-}
-
-/* ===== SIGNATURE CARD SHAPE ===== */
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  padding:90px 22px 44px;
-  clip-path:polygon(
-    0 40px,
-    40px 0,
-    100% 0,
-    100% 100%,
-    0 100%
-  );
-  box-shadow:0 40px 100px rgba(0,0,0,.8);
+/* ===== LAYOUT ===== */
+.wrapper{
+  max-width:520px;
+  margin:90px auto 80px;
+  padding:0 18px;
   text-align:center;
 }
 
-/* ===== HERO FLOAT ===== */
+/* ===== HERO IMAGE ===== */
 .hero{
-  position:absolute;
-  top:-60px;
-  left:50%;
-  transform:translateX(-50%);
-  width:220px;
+  width:260px;
+  margin:0 auto 28px;
 }
 
 .hero img{
   width:100%;
-  border-radius:18px;
-  box-shadow:0 25px 70px rgba(0,0,0,.9);
+  border-radius:22px;
+  box-shadow:0 30px 90px rgba(0,0,0,.85);
 }
 
-/* ===== TEXT ===== */
+/* ===== TYPOGRAPHY ===== */
 h1{
   margin:0;
-  font-size:30px;
+  font-size:32px;
   letter-spacing:.3px;
 }
 
@@ -88,127 +70,132 @@ h1{
 }
 
 .slogan{
-  margin:26px 0 40px;
+  margin:22px 0 44px;
   font-size:13px;
   letter-spacing:3px;
   text-transform:uppercase;
-  opacity:.6;
+  opacity:.55;
+}
+
+/* ===== EMBED ===== */
+.spotify{
+  max-width:440px;
+  margin:0 auto 50px;
+  border-radius:16px;
+  overflow:hidden;
 }
 
 /* ===== SECTIONS ===== */
 .section{
-  margin-top:40px;
+  margin-top:44px;
 }
 
 .section-title{
+  margin-bottom:18px;
   font-size:12px;
   letter-spacing:3px;
-  opacity:.5;
-  margin-bottom:16px;
+  opacity:.45;
 }
 
-/* ===== BUTTON GRID ===== */
-.links{
-  display:grid;
-  gap:14px;
-}
-
-.link{
-  padding:16px;
-  border:1px solid var(--line);
+/* ===== BUTTONS ===== */
+.btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:56px;
+  margin:14px auto;
+  max-width:440px;
+  border-radius:18px;
+  border:1px solid var(--stroke);
   text-decoration:none;
   color:#fff;
-  text-align:center;
-  transition:.2s;
+  font-size:15px;
+  transition:background .18s ease, color .18s ease;
 }
 
-.link:hover{
+.btn:hover{
   background:#fff;
   color:#000;
 }
 
-.highlight{
+.btn.primary{
   border-color:#fff;
 }
 
-/* ===== SPOTIFY ===== */
-.spotify{
-  margin-top:32px;
-  border-radius:14px;
-  overflow:hidden;
-}
-
 /* ===== TEXT ===== */
-.desc{
-  margin-top:40px;
+.quote{
+  margin:60px auto 0;
+  max-width:420px;
   font-size:14px;
   line-height:1.8;
-  opacity:.7;
+  opacity:.55;
 }
 
 /* ===== FOOTER ===== */
 .footer{
-  margin-top:44px;
+  margin-top:60px;
   font-size:13px;
-  opacity:.6;
+  opacity:.5;
+}
+
+.footer a{
+  color:#fff;
+  text-decoration:none;
 }
 
 /* MOBILE */
 @media(max-width:600px){
-  .stage{margin:70px 16px;}
-  .hero{width:200px;}
+  .wrapper{margin:70px auto 60px;}
+  .hero{width:230px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="stage">
+<div class="wrapper">
 
   <div class="hero">
     <img src="https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg" alt="Priyanshu Bhartiya">
   </div>
 
-  <div class="card">
+  <h1>Priyanshu Bhartiya</h1>
+  <div class="tagline">Singer · Composer · Songwriter</div>
+  <div class="slogan">Singing Untold Stories</div>
 
-    <h1>Priyanshu Bhartiya</h1>
-    <div class="tagline">Singer · Composer · Songwriter</div>
-    <div class="slogan">Singing Untold Stories</div>
-
-    <div class="spotify">
-      <iframe src="https://open.spotify.com/embed/track/3qDGbTc6IxmYVkMKN12Bab"
-        width="100%" height="152" frameborder="0" allow="encrypted-media"></iframe>
-    </div>
-
-    <div class="section">
-      <div class="section-title">LISTEN</div>
-      <div class="links">
-        <a class="link highlight" href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab">Cravings — Latest</a>
-        <a class="link" href="https://youtu.be/nCMW5CkNr6U">Pehli Baar</a>
-        <a class="link" href="https://youtu.be/d2wyBVrCmh4">Phir Milenge</a>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">FOLLOW</div>
-      <div class="links">
-        <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv">Spotify</a>
-        <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530">Apple Music</a>
-        <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA">YouTube</a>
-        <a class="link" href="https://instagram.com/ipriyanshubhartiya">Instagram</a>
-      </div>
-    </div>
-
-    <div class="desc">
-      If my songs find a place in your heart, stay with me.<br>
-      I’m always singing untold stories.
-    </div>
-
-    <div class="footer">
-      📩 biz.priyanshubhartiya@gmail.com
-    </div>
-
+  <div class="spotify">
+    <iframe src="https://open.spotify.com/embed/track/3qDGbTc6IxmYVkMKN12Bab"
+      width="100%" height="152" frameborder="0" allow="encrypted-media"></iframe>
   </div>
+
+  <div class="section">
+    <div class="section-title">LATEST</div>
+    <a class="btn primary" href="https://youtu.be/nCMW5CkNr6U">🎵 Pehli Baar</a>
+    <a class="btn" href="https://youtu.be/d2wyBVrCmh4">🎵 Phir Milenge</a>
+  </div>
+
+  <div class="section">
+    <div class="section-title">POPULAR SONGS</div>
+    <a class="btn" href="#">❤️ Marham — 80K+</a>
+    <a class="btn" href="#">🔥 Fanaa Kar Diya 2.0 — 45K+</a>
+  </div>
+
+  <div class="section">
+    <div class="section-title">FOLLOW</div>
+    <a class="btn" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv">Spotify</a>
+    <a class="btn" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA">YouTube</a>
+    <a class="btn" href="https://instagram.com/ipriyanshubhartiya">Instagram</a>
+  </div>
+
+  <div class="quote">
+    Some songs are not meant to be healed.<br>
+    They are meant to be felt — again and again.
+  </div>
+
+  <div class="footer">
+    📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
+  </div>
+
 </div>
 
 </body>
