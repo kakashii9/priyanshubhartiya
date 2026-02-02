@@ -12,7 +12,6 @@
 
 html,body{
   width:100%;
-  overflow-x:hidden;
 }
 
 body{
@@ -20,15 +19,14 @@ body{
   color:#fff;
   background:#000;
   position:relative;
+  overflow-x:hidden;
 }
 
-/* ===== STATIC BLURRED BACKGROUND (NO FIXED) ===== */
-.bg-layer{
+/* ===== FULL PAGE BLURRED BACKGROUND (FLOWING) ===== */
+.page-bg{
   position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:120vh;
+  inset:0;
+  min-height:100%;
   background:
     linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
     url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
@@ -95,7 +93,7 @@ h1{
   text-decoration:none;
   color:#fff;
   backdrop-filter:blur(8px);
-  transition:background .25s ease, color .25s ease, transform .25s ease;
+  transition:.25s ease;
 }
 
 .link:hover{
@@ -146,12 +144,10 @@ h1{
 
 <body>
 
-<!-- BACKGROUND -->
-<div class="bg-layer"></div>
+<div class="page-bg"></div>
 
 <div class="container">
 
-  <!-- HERO -->
   <div class="hero">
     <img src="https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg" alt="Priyanshu Bhartiya">
   </div>
@@ -160,7 +156,6 @@ h1{
   <div class="tagline">Singer · Composer · Songwriter</div>
   <div class="slogan">Singing unTold Stories</div>
 
-  <!-- SPOTIFY EMBED -->
   <div class="spotify">
     <iframe src="https://open.spotify.com/embed/artist/5Gg1GTGlFjLED8vqMggMCv"
       width="100%" height="152" frameborder="0"
@@ -168,46 +163,30 @@ h1{
     </iframe>
   </div>
 
-  <!-- LATEST -->
   <div class="section-title">LATEST</div>
 
-  <a class="link highlight" href="https://youtu.be/nCMW5CkNr6U" target="_blank">
-    🎵 Pehli Baar
-  </a>
+  <a class="link highlight" href="https://youtu.be/nCMW5CkNr6U" target="_blank">🎵 Pehli Baar</a>
+  <a class="link" href="https://youtu.be/d2wyBVrCmh4" target="_blank">🎵 Phir Milenge</a>
 
-  <a class="link" href="https://youtu.be/d2wyBVrCmh4" target="_blank">
-    🎵 Phir Milenge
-  </a>
-
-  <!-- POPULAR -->
   <div class="section-title">POPULAR SONGS</div>
 
   <div class="popular">
-    <a class="link" href="https://youtu.be/eLY1M3MsQZM" target="_blank">
-      ❤️ Marham — 80K+
-    </a>
-    <a class="link" href="https://youtu.be/QpVTHysXjCY" target="_blank">
-      🔥 Fanaa Kar Diya 2.0 — 45K+
-    </a>
+    <a class="link" href="https://youtu.be/eLY1M3MsQZM" target="_blank">❤️ Marham — 80K+</a>
+    <a class="link" href="https://youtu.be/QpVTHysXjCY" target="_blank">🔥 Fanaa Kar Diya 2.0 — 45K+</a>
   </div>
 
-  <!-- FOLLOW -->
   <div class="section-title">FOLLOW</div>
 
   <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
   <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">Apple Music</a>
-  <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">
-    YouTube (Subscribe)
-  </a>
+  <a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
   <a class="link" href="https://instagram.com/ipriyanshubhartiya" target="_blank">Instagram</a>
 
-  <!-- MESSAGE -->
   <div class="desc">
     Some songs are not meant to be healed.<br>
     They are meant to be felt — again and again.
   </div>
 
-  <!-- BUSINESS -->
   <div class="footer">
     📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
   </div>
