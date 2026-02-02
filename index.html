@@ -6,161 +6,199 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-  margin:0;
-  font-family: "Georgia", serif;
-  color:#f5f5f5;
-  background:#050505;
+  font-family: "Inter", system-ui, sans-serif;
+  color:#fff;
+  background:#000;
 }
 
-/* Mood background */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
+/* Background */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.95)),
+    linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.95)),
     url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover no-repeat;
-  filter: blur(40px) brightness(.3);
-  transform: scale(1.2);
-  z-index:-1;
-}
-
-.wrapper{
-  max-width:640px;
-  margin:auto;
-  padding:100px 24px 140px;
 }
 
 h1{
-  font-size:46px;
-  font-weight:500;
-  margin:0;
+  font-size:clamp(42px,6vw,72px);
+  font-weight:700;
+  letter-spacing:1px;
 }
 
 .role{
-  font-family:system-ui,sans-serif;
-  font-size:14px;
-  opacity:.6;
-  margin-top:6px;
+  margin-top:10px;
+  opacity:.7;
 }
 
-.manifesto{
-  margin-top:60px;
+.tagline{
+  margin-top:30px;
   font-size:22px;
-  line-height:1.9;
+  font-weight:600;
+  letter-spacing:1px;
+}
+
+.quote{
+  margin-top:20px;
+  opacity:.7;
+  line-height:1.7;
+}
+
+/* Buttons */
+.buttons{
+  margin-top:50px;
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 26px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+  border:1px solid rgba(255,255,255,.4);
+  color:#fff;
+  transition:.3s;
+}
+
+.btn.primary{
+  background:#fff;
+  color:#000;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
   opacity:.85;
 }
 
-.divider{
-  width:90px;
-  height:1px;
-  background:rgba(255,255,255,.25);
-  margin:70px 0;
+/* Section */
+.section{
+  padding:90px 20px;
+  max-width:1100px;
+  margin:auto;
 }
 
-.song{
-  margin-bottom:42px;
+.section h2{
+  font-size:32px;
+  margin-bottom:40px;
 }
 
-.song a{
-  text-decoration:none;
+/* Cards */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+
+.card{
+  padding:26px;
+  background:rgba(255,255,255,.05);
+  border-radius:16px;
+  transition:.3s;
+}
+
+.card:hover{
+  background:rgba(255,255,255,.1);
+  transform:translateY(-4px);
+}
+
+.card a{
   color:#fff;
+  text-decoration:none;
 }
 
-.song-title{
-  font-size:24px;
+.card h3{
+  font-size:22px;
 }
 
-.song-note{
-  font-family:system-ui,sans-serif;
+.card span{
   font-size:13px;
-  opacity:.55;
-  margin-top:6px;
+  opacity:.6;
 }
 
-.popular{
-  margin-top:90px;
-}
-
-.popular-title{
-  font-size:16px;
-  letter-spacing:3px;
-  opacity:.5;
-  margin-bottom:30px;
-}
-
+/* Footer */
 .footer{
-  margin-top:120px;
-  font-family:system-ui,sans-serif;
-  font-size:13px;
-  opacity:.55;
+  text-align:center;
+  padding:60px 20px;
+  opacity:.6;
+  font-size:14px;
 }
 .footer a{color:#fff;text-decoration:none}
 </style>
 </head>
 
 <body>
-<div class="wrapper">
 
-<h1>Priyanshu Bhartiya</h1>
-<div class="role">Singer · Composer · Songwriter</div>
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Priyanshu Bhartiya</h1>
+    <div class="role">Singer · Composer · Songwriter</div>
 
-<div class="manifesto">
-Singing unTold Stories.<br><br>
-Some songs are not meant to be healed.<br>
-They are meant to be felt — again and again.
-</div>
+    <div class="tagline">Singing unTold Stories</div>
 
-<div class="divider"></div>
+    <div class="quote">
+      Some songs are not meant to be healed.<br>
+      They are meant to be felt — again and again.
+    </div>
 
-<div class="song">
-  <a href="https://open.spotify.com/track/3qDGbTc6IxmYVkMKN12Bab" target="_blank">
-    <div class="song-title">Cravings</div>
-    <div class="song-note">Latest · Spotify</div>
-  </a>
-</div>
-
-<div class="song">
-  <a href="https://youtu.be/nCMW5CkNr6U" target="_blank">
-    <div class="song-title">Pehli Baar</div>
-    <div class="song-note">YouTube</div>
-  </a>
-</div>
-
-<div class="song">
-  <a href="https://youtu.be/d2wyBVrCmh4" target="_blank">
-    <div class="song-title">Phir Milenge</div>
-    <div class="song-note">YouTube</div>
-  </a>
-</div>
-
-<div class="popular">
-  <div class="popular-title">POPULAR</div>
-
-  <div class="song">
-    <a href="https://youtu.be/eLY1M3MsQZM" target="_blank">
-      <div class="song-title">Marham</div>
-      <div class="song-note">80K+ listeners</div>
-    </a>
+    <div class="buttons">
+      <a class="btn primary" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a>
+      <a class="btn" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a>
+    </div>
   </div>
+</section>
 
-  <div class="song">
-    <a href="https://youtu.be/QpVTHysXjCY" target="_blank">
-      <div class="song-title">Fanaa Kar Diya 2.0</div>
-      <div class="song-note">45K+ listeners</div>
-    </a>
+<!-- SONGS -->
+<section class="section">
+  <h2>Latest</h2>
+  <div class="grid">
+    <div class="card">
+      <a href="https://youtu.be/nCMW5CkNr6U" target="_blank">
+        <h3>Pehli Baar</h3>
+        <span>YouTube</span>
+      </a>
+    </div>
+    <div class="card">
+      <a href="https://youtu.be/d2wyBVrCmh4" target="_blank">
+        <h3>Phir Milenge</h3>
+        <span>YouTube</span>
+      </a>
+    </div>
   </div>
-</div>
+</section>
+
+<!-- POPULAR -->
+<section class="section">
+  <h2>Popular</h2>
+  <div class="grid">
+    <div class="card">
+      <a href="https://youtu.be/eLY1M3MsQZM" target="_blank">
+        <h3>Marham</h3>
+        <span>80K+ views</span>
+      </a>
+    </div>
+    <div class="card">
+      <a href="https://youtu.be/QpVTHysXjCY" target="_blank">
+        <h3>Fanaa Kar Diya 2.0</h3>
+        <span>45K+ views</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <div class="footer">
-  <a href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify</a> ·
-  <a href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA?sub_confirmation=1" target="_blank">YouTube</a> ·
-  <a href="https://instagram.com/ipriyanshubhartiya" target="_blank">Instagram</a><br><br>
-  📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
+  © Priyanshu Bhartiya ·
+  <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
 </div>
 
-</div>
 </body>
 </html>
