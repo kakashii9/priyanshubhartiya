@@ -7,14 +7,6 @@
 
 <title>Priyanshu Bhartiya | Official</title>
 
-<!-- SEO -->
-<meta name="description" content="Official website of Priyanshu Bhartiya - Singer, Composer, Songwriter. Listen to latest songs and stories.">
-
-<meta property="og:title" content="Priyanshu Bhartiya | Official">
-<meta property="og:description" content="Singing Untold Stories">
-<meta property="og:image" content="https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg">
-<meta property="og:type" content="website">
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -23,168 +15,124 @@
 
 body{
   font-family:'Inter',sans-serif;
-  background:#000;
   color:#fff;
+  background:#000;
   overflow-x:hidden;
 }
 
-/* SPLIT LAYOUT */
-.main{
-  display:flex;
-  min-height:100vh;
-}
-
-/* LEFT SIDE */
-.left{
-  width:40%;
-  position:sticky;
-  top:0;
-  height:100vh;
+/* BACKGROUND */
+.bg{
+  position:fixed;
+  inset:0;
   background:
-    linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.9)),
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.95)),
     url("https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg") center/cover;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  filter:blur(22px);
+  transform:scale(1.1);
+  z-index:-1;
+}
+
+/* MAIN */
+.container{
+  max-width:540px;
+  margin:60px auto;
   text-align:center;
-  padding:40px;
+  padding:30px 20px 50px;
+  backdrop-filter:blur(12px);
 }
 
-.left h1{
+/* HERO IMAGE */
+.hero img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 40px 120px rgba(0,0,0,.8);
+}
+
+/* TEXT */
+h1{
   font-family:'Playfair Display',serif;
-  font-size:42px;
-  background:linear-gradient(to right,#fff,#aaa);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  font-size:36px;
+  margin-top:20px;
 }
 
-.left p{
-  margin-top:10px;
+.tag{
+  font-size:14px;
   opacity:.7;
 }
 
-.hero-line{
-  margin-top:20px;
-  font-size:18px;
-  font-weight:500;
-  opacity:.9;
-}
-
-/* CTA */
-.cta{
-  margin-top:30px;
-  display:flex;
-  gap:14px;
-}
-
-.btn{
-  padding:12px 20px;
-  border-radius:30px;
-  text-decoration:none;
-  font-size:14px;
-  transition:.3s;
-}
-
-.btn-primary{
-  background:#fff;
-  color:#000;
-}
-
-.btn-outline{
-  border:1px solid #fff;
-  color:#fff;
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 25px rgba(255,255,255,.3);
-}
-
-/* RIGHT SIDE */
-.right{
-  width:60%;
-  padding:50px 40px;
+.slogan{
+  margin-top:12px;
+  letter-spacing:2px;
+  font-size:13px;
+  text-transform:uppercase;
+  opacity:.85;
 }
 
 /* SECTION */
-.section{
-  margin-bottom:40px;
-}
-
 .section-title{
-  font-size:12px;
+  margin:40px 0 18px;
+  font-size:11px;
   letter-spacing:3px;
-  opacity:.6;
-  margin-bottom:15px;
+  opacity:.5;
 }
 
-/* LINKS */
+/* BOXES */
 .link{
-  display:block;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
   padding:16px;
-  border-radius:16px;
-  margin-bottom:14px;
-  border:1px solid rgba(255,255,255,.2);
+  margin:14px 0;
+  border-radius:18px;
   text-decoration:none;
   color:#fff;
-  transition:.25s;
+
+  background:linear-gradient(
+    120deg,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.02)
+  );
+
+  border:1px solid rgba(255,255,255,.2);
+
+  box-shadow:
+    inset 0 0 20px rgba(255,255,255,.05),
+    0 20px 60px rgba(0,0,0,.6);
+
+  transition:.3s ease;
 }
 
+/* GLOW EFFECT 🔥 */
 .link:hover{
+  transform:translateY(-4px) scale(1.02);
   background:#fff;
   color:#000;
-  transform:translateY(-3px);
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,.4),
+    0 20px 80px rgba(0,0,0,.8);
 }
 
-/* SPOTIFY */
+/* ICON */
+.icon{
+  font-size:18px;
+}
+
+/* SPOTIFY EMBED */
 .spotify{
+  margin:30px 0;
   border-radius:16px;
   overflow:hidden;
-  margin-bottom:20px;
-}
-
-/* STATS */
-.stats{
-  display:flex;
-  gap:16px;
-}
-
-.stat{
-  flex:1;
-  padding:18px;
-  border-radius:16px;
-  background:rgba(255,255,255,.05);
-  text-align:center;
-}
-
-.stat h3{
-  font-size:20px;
-}
-
-.stat p{
-  font-size:12px;
-  opacity:.7;
+  box-shadow:0 20px 60px rgba(0,0,0,.7);
 }
 
 /* FOOTER */
 .footer{
   margin-top:40px;
   font-size:12px;
-  opacity:.7;
+  opacity:.6;
   line-height:1.6;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-  .main{
-    flex-direction:column;
-  }
-  .left,.right{
-    width:100%;
-    height:auto;
-    position:relative;
-  }
 }
 
 </style>
@@ -192,85 +140,76 @@ body{
 
 <body>
 
-<div class="main">
+<div class="bg"></div>
 
-  <!-- LEFT -->
-  <div class="left">
-    <h1>Priyanshu Bhartiya</h1>
-    <p>Singer · Composer · Songwriter</p>
+<div class="container">
 
-    <div class="hero-line">
-      Not just songs.<br>Stories you feel.
-    </div>
-
-    <div class="cta">
-      <a href="https://youtu.be/3K6H4PFpDKE" class="btn btn-primary">▶ Latest Song</a>
-      <a href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" class="btn btn-outline">🎧 Spotify</a>
-    </div>
+  <div class="hero">
+    <img src="https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg">
   </div>
 
-  <!-- RIGHT -->
-  <div class="right">
+  <h1>Priyanshu Bhartiya</h1>
+  <div class="tag">Singer · Composer · Songwriter</div>
+  <div class="slogan">Singing Stories that need to be told</div>
 
-    <!-- SPOTIFY -->
-    <div class="section">
-      <div class="spotify">
-        <iframe src="https://open.spotify.com/embed/artist/5Gg1GTGlFjLED8vqMggMCv"
-        width="100%" height="152" frameborder="0"></iframe>
-      </div>
-    </div>
+  <!-- SPOTIFY -->
+  <div class="spotify">
+    <iframe src="https://open.spotify.com/embed/artist/5Gg1GTGlFjLED8vqMggMCv"
+    width="100%" height="152" frameborder="0"></iframe>
+  </div>
 
-    <!-- LATEST -->
-    <div class="section">
-      <div class="section-title">LATEST RELEASE</div>
-      <a class="link" href="https://youtu.be/3K6H4PFpDKE">
-        🖤 TANHA - Loudest in the Silence
-      </a>
-    </div>
+  <!-- LATEST -->
+  <div class="section-title">LATEST RELEASE</div>
 
-    <!-- STATS -->
-    <div class="section">
-      <div class="section-title">ACHIEVEMENTS</div>
-      <div class="stats">
-        <div class="stat">
-          <h3>2L+</h3>
-          <p>Views</p>
-        </div>
-        <div class="stat">
-          <h3>1.5L+</h3>
-          <p>Streams</p>
-        </div>
-        <div class="stat">
-          <h3>10K+</h3>
-          <p>Listeners</p>
-        </div>
-      </div>
-    </div>
+  <a class="link" href="https://youtu.be/3K6H4PFpDKE">
+    <span class="icon">▶</span> TANHA - Loudest in the Silence
+  </a>
 
-    <!-- SONGS -->
-    <div class="section">
-      <div class="section-title">POPULAR SONGS</div>
-      <a class="link" href="https://youtu.be/eLY1M3MsQZM">❤️ Marham</a>
-      <a class="link" href="https://youtu.be/QpVTHysXjCY">🔥 Fanaa Kar Diya 2.0</a>
-      <a class="link" href="https://youtu.be/d2wyBVrCmh4">🎵 Phir Milenge</a>
-    </div>
+  <!-- SONGS -->
+  <div class="section-title">SONGS</div>
 
-    <!-- FOLLOW -->
-    <div class="section">
-      <div class="section-title">FOLLOW</div>
-      <a class="link" href="https://youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA">YouTube</a>
-      <a class="link" href="https://instagram.com/ipriyanshubhartiya">Instagram</a>
-      <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530">Apple Music</a>
-    </div>
+  <a class="link" href="https://youtu.be/d2wyBVrCmh4">
+    🎵 Phir Milenge
+  </a>
 
-    <!-- FOOTER -->
-    <div class="footer">
-      © 2026 Priyanshu Bhartiya. All Rights Reserved.<br>
-      All music, lyrics, and content are protected under copyright law.<br>
-      Unauthorized use, reproduction, or distribution is strictly prohibited.<br><br>
-      📩 biz.priyanshubhartiya@gmail.com
-    </div>
+  <a class="link" href="https://youtu.be/nCMW5CkNr6U">
+    🎵 Pehli Baar
+  </a>
 
+  <!-- POPULAR -->
+  <div class="section-title">POPULAR</div>
+
+  <a class="link" href="https://youtu.be/eLY1M3MsQZM">
+    ❤️ Marham — 80K+
+  </a>
+
+  <a class="link" href="https://youtu.be/QpVTHysXjCY">
+    🔥 Fanaa Kar Diya 2.0 — 45K+
+  </a>
+
+  <!-- FOLLOW -->
+  <div class="section-title">FOLLOW</div>
+
+  <a class="link" href="https://youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA">
+    <span class="icon">▶</span> YouTube
+  </a>
+
+  <a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv">
+    <span class="icon">🎧</span> Spotify
+  </a>
+
+  <a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530">
+    <span class="icon"></span> Apple Music
+  </a>
+
+  <a class="link" href="https://instagram.com/ipriyanshubhartiya">
+    <span class="icon">📸</span> Instagram
+  </a>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    © 2026 Priyanshu Bhartiya. All Rights Reserved.<br>
+    All content is protected under copyright law.
   </div>
 
 </div>
