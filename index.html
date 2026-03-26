@@ -146,10 +146,23 @@ h1{
 
 /* live ul */  
 .live ul {
-    list-style-position: inside;
+    list-style: none;        /* default bullets hatao */
     padding: 0;
     margin: 0;
+}
+
+.live li {
     text-align: center;
+    position: relative;
+    margin: 8px 0;
+}
+
+.live li::before {
+    content: "•";
+    display: inline-block;
+    width: 20px;             /* fixed space = alignment fix */
+    text-align: right;
+    margin-right: 8px;
 }
   
 /* ACHIEVEMENTS */
