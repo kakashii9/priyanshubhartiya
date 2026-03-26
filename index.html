@@ -52,10 +52,52 @@ body{
 } */
 
 /* HERO */
-.hero img{
+.glow-img {
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+}
+
+.glow-img img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+}
+
+/* 🔥 Glow layer */
+.glow-img::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 24px;
+
+    background: linear-gradient(
+        45deg,
+        #00f0ff,
+        #00c3ff,
+        #7a5cff,
+        #00f0ff
+    );
+
+    background-size: 300% 300%;   /* 👈 animation ke liye */
+    animation: glowMove 6s linear infinite;
+
+    z-index: -1;
+    filter: blur(12px);
+    opacity: 0.8;
+}
+
+/* 🔥 Animation */
+@keyframes glowMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+  
+  /* .hero img{
   width:100%;
   border-radius:20px;
-}
+} */
 
 /* TEXT */
 h1{
@@ -192,7 +234,7 @@ h1{
 <div class="container">
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero glow-img">
 <img src="https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg">
 </div>
 
