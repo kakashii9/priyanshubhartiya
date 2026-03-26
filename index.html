@@ -30,6 +30,48 @@ body{
   z-index:-1;
 }
 
+/* Mobile Responsive */
+/* 🔥 GLOBAL RESPONSIVE FIX */
+* {
+  box-sizing: border-box;
+}
+
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Text auto-scale */
+h1 {
+  font-size: clamp(22px, 6vw, 36px);
+}
+
+h2 {
+  font-size: clamp(18px, 5vw, 28px);
+}
+
+p, .tag, .slogan {
+  font-size: clamp(12px, 3.5vw, 16px);
+}
+
+/* Containers auto fit */
+.container {
+  width: 100%;
+  padding: 20px;
+}
+
+/* Grid responsive */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+/* Flex wrap */
+.live, .achieve {
+  width: 100%;
+  padding: 0 10px;
+}
+  
 /* CONTAINER */
 .container {
     max-width:520px;
