@@ -31,7 +31,17 @@ body{
 }
 
 /* CONTAINER */
-.container{
+.container {
+    max-width:520px;
+    margin:40px auto;
+    padding:30px;
+    text-align:center;
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 0;
+}
+  
+/* .container{
   max-width:520px;
   margin:40px auto;
   padding:30px;
@@ -39,7 +49,7 @@ body{
   background:rgba(0,0,0,.5);
   backdrop-filter:blur(14px);
   border-radius:26px;
-}
+} */
 
 /* HERO */
 .hero img{
@@ -128,7 +138,7 @@ h1{
 
 /* LIVE */
 .live{
-  text-align:left;
+  text-align:center;
   font-size:13px;
   line-height:1.8;
   opacity:.85;
@@ -170,10 +180,12 @@ h1{
 <div class="slogan">Singing Stories that need to be told</div>
 
 <!-- SPOTIFY -->
-<div class="section-title">SPOTIFY</div>
-<div class="spotify">
-<iframe src="https://open.spotify.com/embed/artist/5Gg1GTGlFjLED8vqMggMCv"></iframe>
-</div>
+  <div class="spotify">
+    <iframe src="https://open.spotify.com/embed/artist/5Gg1GTGlFjLED8vqMggMCv"
+      width="100%" height="152" frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+  </div>
 
 <!-- LATEST -->
 <div class="section-title">LATEST RELEASE</div>
@@ -242,10 +254,10 @@ Collaborations with established labels and appearances alongside emerging indust
 <!-- CONTACT -->
 <div class="section-title">CONTACT</div>
 
-<div class="footer">
-Mail for queries & collaborations<br>
-📩 biz.priyanshubhartiya@gmail.com
-</div>
+  <div class="footer">
+    Mail for queries & collaborations<br>
+    📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
+  </div>
 
 <!-- COPYRIGHT -->
 <div class="footer">
