@@ -74,6 +74,20 @@ p, .tag, .slogan {
   
 /* CONTAINER */
 .container {
+    width: 100%;
+    max-width: 900px;        /* desktop ke liye controlled width */
+    margin: 40px auto;
+    padding: 20px;
+}
+
+  @media (max-width: 600px) {
+  .container {
+    max-width: 100%;     /* mobile pe full width allow */
+    padding: 15px;       /* side spacing maintain */
+  }
+}
+  
+/* .container {
     max-width:520px;
     margin:40px auto;
     padding:30px;
@@ -82,16 +96,7 @@ p, .tag, .slogan {
     backdrop-filter: none;
     border-radius: 0;
 }
-  
-/* .container{
-  max-width:520px;
-  margin:40px auto;
-  padding:30px;
-  text-align:center;
-  background:rgba(0,0,0,.5);
-  backdrop-filter:blur(14px);
-  border-radius:26px;
-} */
+   */
 
 /* HERO */
 .glow-img {
