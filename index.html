@@ -1,330 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Priyanshu Bhartiya | Official</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@200;300;400;500&family=Cormorant:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box}
+/* ═══════════════════════════════════════
+   FOUNDATION
+═══════════════════════════════════════ */
 
-body{
-  font-family:'Inter',sans-serif;
-  background:#000;
-  color:#fff;
-  overflow-x: hidden;
-  text-align: center;
-
-}
-  
-/* BACKGROUND */
-.page-bg{
-  position:fixed;
-  inset:0;
-  background:
-    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
-    url("https://i.postimg.cc/pV7fw16R/Black-White-Monochrome-Music-Presentation2.png") center/cover;
-  filter:blur(1.5px);
-  transform:scale(1.1);
-  z-index:-1;
-}
-
-/* Mobile Responsive */
-/* 🔥 GLOBAL RESPONSIVE FIX */
-* {
+*, *::before, *::after {
+  margin: 0; padding: 0;
   box-sizing: border-box;
 }
 
-img, iframe {
-  max-width: 100%;
-  height: auto;
+:root {
+  --amber:  #d4935a;
+  --amber2: #b87540;
+  --cream:  #ede5d8;
+  --muted:  rgba(237,229,216,0.45);
+  --dimmer: rgba(237,229,216,0.28);
+  --dark:   #060606;
 }
 
-/* Text auto-scale */
-h1 {
-    font-size: clamp(22px, 6vw, 36px);
-    line-height: 1.2;
-    letter-spacing: 0.5px;
-    text-align: center;
-    word-break: break-work;
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  background: var(--dark);
+  color: var(--cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-  /* h1 {
-    white-space: nowrap;
-} */
+/* ═══════════════════════════════════════
+   LAYERED BACKGROUND — CINEMATIC DEPTH
+═══════════════════════════════════════ */
 
-h2 {
-  font-size: clamp(18px, 5vw, 28px);
+.bg-photo {
+  position: fixed;
+  inset: 0;
+  background: url("https://i.postimg.cc/pV7fw16R/Black-White-Monochrome-Music-Presentation2.png")
+    center / cover no-repeat;
+  filter: blur(3px) brightness(0.35) saturate(0.6);
+  transform: scale(1.08);
+  z-index: -3;
 }
 
-p, .tag, .slogan {
-  font-size: clamp(12px, 3.5vw, 16px);
+.bg-vignette {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%,
+      rgba(180,90,30,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 100% 50% at 50% 100%,
+      rgba(6,6,6,0.95) 0%, transparent 80%),
+    linear-gradient(180deg,
+      rgba(6,6,6,0.55) 0%,
+      rgba(6,6,6,0.25) 40%,
+      rgba(6,6,6,0.80) 100%);
+  z-index: -2;
 }
 
-/* Containers auto fit */
-.container {
-  width: 100%;
-  padding: 20px;
+.bg-grain {
+  position: fixed;
+  inset: 0;
+  opacity: 0.045;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════ */
+
+.page {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 28px 100px;
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+
+.hero {
+  padding-top: 72px;
   text-align: center;
+  margin-bottom: 52px;
 }
 
-/* Grid responsive */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+.photo-wrap {
+  position: relative;
+  display: inline-block;
+  border-radius: 22px;
+  margin-bottom: 44px;
 }
 
-/* Flex wrap */
-.live, .achieve {
-  width: 100%;
-  padding: 0 10px;
-}
-  
-/* CONTAINER */
-.container {
-    width: 100%;
-    max-width: 520px;      /* SAME rakho (ye hi premium look hai) */
-    margin: 40px auto;     /* center alignment fix */
-    padding: 20px;
-    box-sizing: border-box;
+.photo-wrap img {
+  display: block;
+  width: min(100%, 420px);
+  border-radius: 22px;
+  position: relative;
+  z-index: 2;
 }
 
-  @media (max-width: 600px) {
-  .container {
-    padding: 15px;
-    margin: 20px auto;
-  }
-}
-  
-/* .container {
-    max-width:520px;
-    margin:40px auto;
-    padding:30px;
-    text-align:center;
-    background: transparent;
-    backdrop-filter: none;
-    border-radius: 0;
-}
-   */
-
-/* HERO */
-.glow-img {
-    position: relative;
-    display: inline-block;
-    border-radius: 20px;
+.photo-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 24px;
+  background: conic-gradient(
+    from 0deg,
+    #3d1a00,
+    #b87540,
+    #f0c080,
+    #d4935a,
+    #8b3e10,
+    #3d1a00,
+    #b87540
+  );
+  z-index: 1;
+  animation: spinBorder 8s linear infinite;
 }
 
-.glow-img img {
-    width: 100%;
-    border-radius: 20px;
-    display: block;
+.photo-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 28px;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(212,147,90,0.6),
+    rgba(240,192,128,0.4),
+    rgba(212,147,90,0.6),
+    transparent
+  );
+  z-index: 0;
+  filter: blur(18px);
+  animation: spinBorder 8s linear infinite;
 }
 
-/* 🔥 Glow layer */
-.glow-img::before {
-    content: "";
-    position: absolute;
-    inset: -3px;
-    border-radius: 24px;
-
-    background: linear-gradient(
-        45deg,
-        #ff7a18,
-        #ffb347,
-        #ff416c,
-        #ff7a18,
-        #ff8c42
-    );
-
-    background-size: 300% 300%;   /* 👈 animation ke liye */
-    animation: glowMove 6s linear infinite;
-
-    z-index: -1;
-    filter: blur(12px);
-    opacity: 0.8;
+@keyframes spinBorder {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-/* 🔥 Animation */
-@keyframes glowMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-  
-  /* .hero img{
-  width:100%;
-  border-radius:20px;
-} */
-
-/* TEXT */
-h1{
-  font-family:'Playfair Display';
-  font-size:34px;
+.name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(36px, 9vw, 52px);
+  letter-spacing: 1.5px;
+  line-height: 1.05;
+  color: #fff;
+  text-shadow:
+    0 0 40px rgba(212,147,90,0.35),
+    0 2px 30px rgba(0,0,0,0.8);
 }
 
-.tag{
-  opacity:.7;font-size:14px
-  text-align: center;
+.role {
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-weight: 400;
 }
 
-.slogan{
-  text-align: center;
-  margin-top:8px;
-  font-size:13px;
-  letter-spacing:2px;
-  text-transform:uppercase;
+.hairline {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  margin: 20px auto;
 }
 
-/* SECTION */
-.section-title{
-  text-align: center !important;
-  letter-spacing: 2.3px;
-  margin:40px 0 16px;
-  font-size:12px;
-  opacity:.6;
-}
-
-/* follow note */
-.follow-note {
-    font-size: 12px;
-    opacity: .6;
-    font-style: italic;
-}
-  
-/* LINKS */
-.link{
-  display:block;
-  padding:16px;
-  margin:12px 0;
-  border-radius:18px;
-  text-decoration:none;
-  color:#fff;
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.05);
-  transition:.3s;
-  text-align:center;
-}
-
-.link:hover{
-  background:#fff;
-  color:#000;
-  transform:translateY(-3px);
-}
-
-/* FEATURED GLOW 🔥 */
-.highlight{
-  box-shadow:0 0 30px rgba(255,255,255,.3);
-  border:1px solid #fff;
-}
-
-/* SPOTIFY FIX */
-.spotify iframe{
-  width:100%;
-  height:152px;
-  border-radius:16px;
-}
-
-/* STATS */
-.stats{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.stat-box{
-    position: relative;
-    padding:14px;
-    border-radius:16px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.15);
-    font-size:13px;
-    z-index: 1;
-  box-shadow: 
-  0 0 8px rgba(255, 200, 120, 0.15),
-  0 0 18px rgba(255, 150, 80, 0.12);
-}
-
-/* 🔥 Glow */
-.stat-box{
-    padding:14px;
-    border-radius:16px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.15);
-    font-size:13px;
-
-    box-shadow: 
-      0 0 8px rgba(255, 200, 120, 0.15),
-      0 0 18px rgba(255, 150, 80, 0.12);
-}
-  
-  /* .stat-box{
-  padding:14px;
-  border-radius:16px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.15);
-  font-size:13px;
-} */
-
-/* ABOUT */
-.about{
-  text-align:center;
-  font-size:13px;
-  line-height:1.7;
-  opacity:.85;
-}
-
-/* LIVE */
-.live{
-  text-align:center;
-  font-size:13px;
-  line-height:1.8;
-  opacity:.85;
+.slogan {
+  font-family: 'Cormorant', serif;
   font-style: italic;
-  
+  font-size: clamp(14px, 4vw, 17px);
+  color: var(--muted);
+  letter-spacing: 1.5px;
 }
 
-/* live ul */  
-.live ul {
-    list-style: none;        /* default bullets hatao */
-    padding: 0;
-    margin: 0;
+/* ═══════════════════════════════════════
+   SECTION TITLES
+═══════════════════════════════════════ */
+
+.sec {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-weight: 400;
+  margin: 56px 0 22px;
+  opacity: 0.85;
 }
 
-.live li {
-    text-align: center;
-    position: relative;
-    margin: 8px 0;
+/* ═══════════════════════════════════════
+   SPOTIFY
+═══════════════════════════════════════ */
+
+.spotify-shell {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(212,147,90,0.18);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04),
+    0 16px 60px rgba(0,0,0,0.7),
+    0 0 40px rgba(212,147,90,0.06);
 }
 
-.live li::before {
-    content: "•";
-    display: inline-block;
-    width: 20px;             /* fixed space = alignment fix */
-    text-align: right;
-    margin-right: 8px;
+.spotify-shell iframe {
+  display: block;
+  width: 100%;
+  height: 152px;
+  border: none;
 }
-  
-/* ACHIEVEMENTS */
-.achieve{
+
+/* ═══════════════════════════════════════
+   LINKS — EDITORIAL LIST STYLE
+═══════════════════════════════════════ */
+
+.track-list {
+  border-top: 1px solid rgba(237,229,216,0.08);
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 4px;
+  border-bottom: 1px solid rgba(237,229,216,0.07);
+  text-decoration: none;
+  color: var(--cream);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.track::before {
+  content: '';
+  position: absolute;
+  left: -28px; right: -28px;
+  top: 0; bottom: 0;
+  background: rgba(212,147,90,0.04);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.track:hover::before { opacity: 1; }
+.track:hover { color: #fff; }
+
+.track:hover .track-name { letter-spacing: 0.6px; }
+
+.track-icon {
+  font-size: 18px;
+  width: 28px;
   text-align: center;
-  font-size:13px;
-  line-height:1.8;
-  border:1px solid rgba(255,255,255,.2);
-  padding:14px;
-  border-radius:16px;
-  background:rgba(255,255,255,.05);
+  flex-shrink: 0;
 }
 
-/* FOOTER */
-.footer{
+.track-name {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  transition: letter-spacing 0.3s;
+}
+
+.track-count {
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 1px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.track.latest { padding: 22px 4px; }
+.track.latest .track-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════
+   STATS
+═══════════════════════════════════════ */
+
+.stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(237,229,216,0.08);
+  border: 1px solid rgba(237,229,216,0.08);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.stat {
+  padding: 22px 20px;
+  background: rgba(6,6,6,0.6);
   text-align: center;
-  margin-top:30px;
-  font-size:12px;
-  opacity:.7;
+  position: relative;
+}
+
+.stat::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 20%; right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,147,90,0.4), transparent);
+}
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 5vw, 26px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.stat-sub {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.6;
+}
+
+.stat-label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+  opacity: 0.75;
+}
+
+/* ═══════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════ */
+
+.about-block {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(15px, 4.2vw, 17px);
+  font-weight: 400;
+  line-height: 1.95;
+  color: rgba(237,229,216,0.78);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════
+   LIVE
+═══════════════════════════════════════ */
+
+.live-list {
+  border-top: 1px solid rgba(237,229,216,0.08);
+}
+
+.live-item {
+  padding: 14px 4px;
+  border-bottom: 1px solid rgba(237,229,216,0.07);
+  font-size: 14px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  letter-spacing: 0.3px;
+}
+
+.live-item::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════
+   ACHIEVEMENTS
+═══════════════════════════════════════ */
+
+.achieve-block {
+  border: 1px solid rgba(237,229,216,0.09);
+  border-radius: 18px;
+  padding: 30px 26px;
+  background: rgba(6,6,6,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.achieve-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,147,90,0.6), transparent);
+}
+
+.achieve-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(237,229,216,0.06);
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: rgba(237,229,216,0.72);
+  font-weight: 300;
+}
+
+.achieve-item:last-child { border-bottom: none; }
+
+.achieve-item::before {
+  content: '—';
+  color: var(--amber);
+  font-weight: 300;
+  flex-shrink: 0;
+  margin-top: 1px;
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════
+   FOLLOW
+═══════════════════════════════════════ */
+
+.follow-list {
+  border-top: 1px solid rgba(237,229,216,0.08);
+}
+
+.follow-item {
+  display: flex;
+  align-items: center;
+  padding: 18px 4px;
+  border-bottom: 1px solid rgba(237,229,216,0.07);
+  text-decoration: none;
+  color: var(--cream);
+  gap: 18px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.follow-item::before {
+  content: '';
+  position: absolute;
+  left: -28px; right: -28px;
+  top: 0; bottom: 0;
+  background: rgba(212,147,90,0.04);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.follow-item:hover::before { opacity: 1; }
+.follow-item:hover { color: #fff; }
+
+.follow-name {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.follow-desc {
+  font-size: 12px;
+  font-family: 'Cormorant', serif;
+  font-style: italic;
+  color: var(--dimmer);
+}
+
+.follow-arrow {
+  color: var(--amber);
+  font-size: 14px;
+  opacity: 0.6;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.follow-item:hover .follow-arrow {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════ */
+
+.contact-block {
+  text-align: center;
+  padding: 40px 24px;
+  border: 1px solid rgba(237,229,216,0.09);
+  border-radius: 18px;
+  background: rgba(6,6,6,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,147,90,0.6), transparent);
+}
+
+.contact-block::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,147,90,0.3), transparent);
+}
+
+.contact-head {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.contact-copy {
+  font-family: 'Cormorant', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.contact-mail {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: var(--amber);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212,147,90,0.3);
+  padding-bottom: 3px;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.contact-mail:hover {
+  color: #fff;
+  border-color: rgba(237,229,216,0.4);
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+
+.footer {
+  margin-top: 64px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 2;
+  color: rgba(237,229,216,0.22);
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+
+.r {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1),
+              transform 0.75s cubic-bezier(0.22,1,0.36,1);
+}
+.r.on {
+  opacity: 1;
+  transform: none;
 }
 
 </style>
@@ -332,111 +589,175 @@ h1{
 
 <body>
 
-<div class="page-bg"></div>
+<div class="bg-photo"></div>
+<div class="bg-vignette"></div>
+<div class="bg-grain"></div>
 
-<div class="container">
+<div class="page">
 
-<!-- HERO -->
-<div class="hero glow-img">
-<img src="https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg">
-</div><br>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="photo-wrap r">
+      <img src="https://i.postimg.cc/HW0tnsVh/Spotify-main.jpg" alt="Priyanshu Bhartiya">
+    </div>
+    <h1 class="name r">Priyanshu Bhartiya</h1>
+    <div class="role r">Singer · Composer · Songwriter</div>
+    <div class="hairline r"></div>
+    <div class="slogan r">Singing Untold Stories</div>
+  </section>
 
-<h1>Priyanshu Bhartiya</h1>
-<div class="tag">Singer · Composer · Songwriter</div><br>
-<div class="slogan">Singing Untold Stories</div>
-  <br>
-
-<!-- SPOTIFY -->
-  <div class="spotify">
+  <!-- SPOTIFY -->
+  <p class="sec r">Listen</p>
+  <div class="spotify-shell r">
     <iframe src="https://open.spotify.com/embed/artist/5Gg1GTGlFjLED8vqMggMCv"
-      width="100%" height="152" frameborder="0"
+      frameborder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
     </iframe>
   </div>
 
-<!-- LATEST -->
-<div class="section-title">LATEST RELEASE</div>
-<a class="link highlight" href="https://youtu.be/3K6H4PFpDKE">
-🖤 TANHA - Loudest in the Silence
-</a>
-
-<!-- POPULAR -->
-<div class="section-title">POPULAR SONGS</div>
-
-  <a class="link" href="https://youtu.be/eLY1M3MsQZM" target="_blank">❤️ Marham — 80K+</a>
-  <a class="link" href="https://youtu.be/QpVTHysXjCY" target="_blank">🔥 Fanaa Kar Diya 2.0 — 45K+</a>
-  <a class="link" href="https://youtu.be/nCMW5CkNr6U" target="_blank">🎵 Pehli Baar — 30k+ </a>
-  <a class="link" href="https://youtu.be/d2wyBVrCmh4" target="_blank">🎵 Phir Milenge — 20k+</a>
-
-<!-- STATS -->
-<div class="section-title">SPOTIFY GROWTH</div>
-
-<div class="stats">
-<div class="stat-box"><b>2025</b><br>77K listeners<br>110K streams</div>
-<div class="stat-box"><b>2024</b><br>12K listeners<br>32K streams</div>
-<div class="stat-box"><b>Growth</b><br>+537% listeners<br>+246% streams</div>
-<div class="stat-box"><b>All Time</b><br>~142K+ streams</div>
-</div>
-
-<!-- ABOUT -->
-<div class="section-title">ABOUT</div>
-
-<div class="about">
-An independent artist shaping emotionally-driven Hindi music, Priyanshu Bhartiya blends lyrical depth with melodic storytelling.  
-
-With performances across platforms like TEDx, Red FM, and major cultural festivals, his work bridges raw emotion with modern soundscapes.  
-
-Collaborations with established labels and appearances alongside emerging industry voices reflect a growing presence in India’s independent music scene.
-</div>
-
-<!-- LIVE -->
-<div class="section-title">LIVE PERFORMANCES</div>
-
-<div class="live">
-  <ul>
-    <li>TEDx MotiVihar</li>
-    <li>MegaVibe Fest</li>
-    <li>United Group of Institutions</li>
-    <li>NCZCC</li>
-    <li>Red FM Feature</li>
-    <li>20+ Shows</li>
-  </ul>
-</div>
-
-<!-- ACHIEVEMENTS -->
-<div class="section-title">ACHIEVEMENTS</div>
-
-<div class="achieve">
-• Songs selected for radio platforms like<br> Chennai Live, 91.9 Friends FM & Radio Nation<br>
-• 75+ countries reach<br>
-• Strong independent streaming growth
-</div>
-
-<!-- FOLLOW -->
-<div class="section-title">FOLLOW</div>
-
-<a class="link" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA" target="_blank">YouTube <span class="follow-note">— watch the stories</span></a>
-<a class="link" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">Spotify <span class="follow-note">— stream the feelings</span></a>
-<a class="link" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">Apple Music <span class="follow-note">— listen in lossless</span></a>
-<a class="link" href="https://instagram.com/ipriyanshubhartiya" target="_blank">Instagram <span class="follow-note">— behind the songs</span></a>
-
-
-<!-- CONTACT -->
-<div class="section-title">CONTACT</div>
-
-  <div class="footer">
-    Mail for queries & collaborations<br>
-    📩 <a href="mailto:biz.priyanshubhartiya@gmail.com">biz.priyanshubhartiya@gmail.com</a>
+  <!-- LATEST -->
+  <p class="sec r">Latest Release</p>
+  <div class="track-list r">
+    <a class="track latest" href="https://youtu.be/3K6H4PFpDKE" target="_blank">
+      <span class="track-icon">🖤</span>
+      <span class="track-name">TANHA — Loudest in the Silence</span>
+    </a>
   </div>
 
-<!-- COPYRIGHT -->
-<div class="footer">
-© 2026 Priyanshu Bhartiya. All Rights Reserved.<br><br>
-All music, lyrics, and content are protected under copyright law.
-Unauthorized use, reproduction, or distribution is strictly prohibited.
-</div>
+  <!-- POPULAR -->
+  <p class="sec r">Popular Songs</p>
+  <div class="track-list r">
+    <a class="track" href="https://youtu.be/eLY1M3MsQZM" target="_blank">
+      <span class="track-icon">❤️</span>
+      <span class="track-name">Marham</span>
+      <span class="track-count">80K+</span>
+    </a>
+    <a class="track" href="https://youtu.be/QpVTHysXjCY" target="_blank">
+      <span class="track-icon">🔥</span>
+      <span class="track-name">Fanaa Kar Diya 2.0</span>
+      <span class="track-count">45K+</span>
+    </a>
+    <a class="track" href="https://youtu.be/nCMW5CkNr6U" target="_blank">
+      <span class="track-icon">🎵</span>
+      <span class="track-name">Pehli Baar</span>
+      <span class="track-count">30K+</span>
+    </a>
+    <a class="track" href="https://youtu.be/d2wyBVrCmh4" target="_blank">
+      <span class="track-icon">🎵</span>
+      <span class="track-name">Phir Milenge</span>
+      <span class="track-count">20K+</span>
+    </a>
+  </div>
+
+  <!-- STATS -->
+  <p class="sec r">Spotify Growth</p>
+  <div class="stats-row r">
+    <div class="stat">
+      <div class="stat-label">2025</div>
+      <div class="stat-num">77K</div>
+      <div class="stat-sub">listeners<br>110K streams</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">2024</div>
+      <div class="stat-num">12K</div>
+      <div class="stat-sub">listeners<br>32K streams</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Growth</div>
+      <div class="stat-num">+537%</div>
+      <div class="stat-sub">listeners<br>+246% streams</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">All Time</div>
+      <div class="stat-num">142K+</div>
+      <div class="stat-sub">total streams</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <p class="sec r">About</p>
+  <p class="about-block r">
+    An independent artist shaping emotionally-driven Hindi music, Priyanshu Bhartiya blends lyrical depth with melodic storytelling.<br><br>
+    With performances across platforms like TEDx, Red FM, and major cultural festivals, his work bridges raw emotion with modern soundscapes.<br><br>
+    Collaborations with established labels and appearances alongside emerging industry voices reflect a growing presence in India's independent music scene.
+  </p>
+
+  <!-- LIVE -->
+  <p class="sec r">Live Performances</p>
+  <div class="live-list r">
+    <div class="live-item">TEDx MotiVihar</div>
+    <div class="live-item">MegaVibe Fest</div>
+    <div class="live-item">United Group of Institutions</div>
+    <div class="live-item">NCZCC</div>
+    <div class="live-item">Red FM Feature</div>
+    <div class="live-item">20+ Shows</div>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <p class="sec r">Achievements</p>
+  <div class="achieve-block r">
+    <div class="achieve-item">Songs selected for radio platforms like Chennai Live, 91.9 Friends FM &amp; Radio Nation</div>
+    <div class="achieve-item">75+ countries reach worldwide</div>
+    <div class="achieve-item">Strong independent streaming growth — 142K+ all-time streams</div>
+  </div>
+
+  <!-- FOLLOW -->
+  <p class="sec r">Follow</p>
+  <div class="follow-list r">
+    <a class="follow-item" href="https://www.youtube.com/channel/UCH1BElC340IBWYMn8p-OvhA" target="_blank">
+      <span class="follow-name">YouTube</span>
+      <span class="follow-desc">watch the stories</span>
+      <span class="follow-arrow">›</span>
+    </a>
+    <a class="follow-item" href="https://open.spotify.com/artist/5Gg1GTGlFjLED8vqMggMCv" target="_blank">
+      <span class="follow-name">Spotify</span>
+      <span class="follow-desc">stream the feelings</span>
+      <span class="follow-arrow">›</span>
+    </a>
+    <a class="follow-item" href="https://music.apple.com/in/artist/priyanshu-bhartiya/1542073530" target="_blank">
+      <span class="follow-name">Apple Music</span>
+      <span class="follow-desc">listen in lossless</span>
+      <span class="follow-arrow">›</span>
+    </a>
+    <a class="follow-item" href="https://instagram.com/ipriyanshubhartiya" target="_blank">
+      <span class="follow-name">Instagram</span>
+      <span class="follow-desc">behind the songs</span>
+      <span class="follow-arrow">›</span>
+    </a>
+  </div>
+
+  <!-- CONTACT -->
+  <p class="sec r">Contact</p>
+  <div class="contact-block r">
+    <div class="contact-head">Bookings &amp; Collaborations</div>
+    <p class="contact-copy">For queries, features &amp; collaborations — reach out directly</p>
+    <a class="contact-mail" href="mailto:biz.priyanshubhartiya@gmail.com">
+      📩 biz.priyanshubhartiya@gmail.com
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="hairline" style="margin-bottom:28px"></div>
+    © 2026 Priyanshu Bhartiya. All Rights Reserved.<br>
+    All music, lyrics and content are protected under copyright law.<br>
+    Unauthorized use, reproduction or distribution is strictly prohibited.
+  </footer>
 
 </div>
+
+<script>
+  const items = document.querySelectorAll('.r');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('on');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  items.forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>
